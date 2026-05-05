@@ -4,81 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>I Sarang 아이사랑 | Children Support Project</title>
-  <meta name="description" content="I Sarang은 필리핀 현지 아이들에게 식사, 교육, 의료, 생활 지원을 전하는 어린이 후원 프로젝트입니다." />
+  <meta name="description" content="필리핀 거주 15년차, 10년째 이웃 아이들과 함께해온 조엘이 시작한 어린이 후원 프로젝트입니다." />
+
+  <!-- Fonts: Pretendard (KO/EN base) + Fraunces (display serif for moments) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500;9..144,700;9..144,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+
   <style>
     :root {
-      --cream: #fff8ec;
-      --cream-2: #fffdf8;
-      --yellow: #f6c85f;
-      --yellow-deep: #eba928;
-      --sky: #83c5e8;
-      --green: #8bc9a6;
-      --navy: #263238;
-      --text: #344047;
-      --muted: #6f7d83;
-      --line: rgba(38, 50, 56, 0.12);
-      --white: #ffffff;
-      --shadow: 0 18px 50px rgba(38, 50, 56, 0.12);
-      --radius-lg: 30px;
-      --radius-md: 20px;
-      --radius-sm: 14px;
+      /* Warm palette — restored & refined */
+      --cream:      #fdf8ee;
+      --cream-2:    #f6eedb;
+      --paper:      #fffdf7;
+      --ink:        #2a221c;
+      --ink-soft:   #6b5e51;
+      --ink-mute:   #998a78;
+      --line:       rgba(42, 34, 28, 0.10);
+      --line-soft:  rgba(42, 34, 28, 0.06);
+
+      --sun:        #e8a838;
+      --sun-deep:   #c98a1c;
+      --sun-soft:   #fce4a8;
+
+      --sky:        #7eb6d4;
+      --sky-soft:   #d6e9f3;
+
+      --leaf:       #7fb997;
+      --leaf-soft:  #d6ebde;
+
+      --rose:       #d97a6c;
+      --rose-soft:  #f4d7d2;
+
+      --shadow-sm:  0 1px 2px rgba(42, 34, 28, 0.06), 0 2px 6px rgba(42, 34, 28, 0.04);
+      --shadow-md:  0 6px 14px rgba(42, 34, 28, 0.06), 0 12px 30px rgba(42, 34, 28, 0.06);
+      --shadow-lg:  0 18px 50px rgba(42, 34, 28, 0.12);
+
+      --radius-xl:  28px;
+      --radius-lg:  20px;
+      --radius-md:  14px;
+      --radius-sm:  10px;
+
+      --serif:      "Fraunces", "Pretendard Variable", ui-serif, Georgia, serif;
+      --sans:       "Pretendard Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", sans-serif;
+      font-family: var(--sans);
       background: var(--cream);
-      color: var(--text);
-      line-height: 1.65;
+      color: var(--ink);
+      line-height: 1.6;
+      letter-spacing: -0.01em;
       word-break: keep-all;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    .page {
-      min-height: 100vh;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
       background:
-        radial-gradient(circle at top left, rgba(246, 200, 95, 0.32), transparent 34%),
-        radial-gradient(circle at 80% 10%, rgba(131, 197, 232, 0.28), transparent 30%),
-        linear-gradient(180deg, var(--cream), #ffffff 38%, var(--cream));
+        radial-gradient(circle at 8% 8%, rgba(232, 168, 56, 0.18), transparent 35%),
+        radial-gradient(circle at 92% 12%, rgba(126, 182, 212, 0.16), transparent 32%),
+        radial-gradient(circle at 50% 95%, rgba(127, 185, 151, 0.10), transparent 40%);
     }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; color: inherit; }
 
     .container {
-      width: min(1140px, calc(100% - 40px));
+      width: min(1180px, calc(100% - 48px));
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
+    /* ───── Header ───── */
     .header {
       position: sticky;
       top: 0;
       z-index: 50;
-      backdrop-filter: blur(18px);
-      background: rgba(255, 248, 236, 0.86);
-      border-bottom: 1px solid rgba(38, 50, 56, 0.08);
+      backdrop-filter: blur(16px);
+      background: rgba(253, 248, 238, 0.85);
+      border-bottom: 1px solid var(--line-soft);
     }
 
     .nav {
-      height: 78px;
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -89,54 +108,67 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 900;
-      color: var(--navy);
-      letter-spacing: -0.04em;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: -0.03em;
     }
 
     .logo-mark {
       width: 44px;
       height: 44px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--yellow), var(--sky));
+      border-radius: 12px;
+      background: var(--paper);
       display: grid;
       place-items: center;
-      box-shadow: 0 12px 24px rgba(235, 169, 40, 0.22);
-      color: var(--white);
-      font-size: 22px;
+      box-shadow: 0 2px 8px rgba(42, 34, 28, 0.10);
+      overflow: hidden;
+      flex-shrink: 0;
     }
+
+    .logo-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .logo-mark svg { width: 22px; height: 22px; }
 
     .logo-text strong {
       display: block;
-      font-size: 20px;
-      line-height: 1.1;
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
     }
 
     .logo-text span {
       display: block;
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 700;
-      letter-spacing: -0.02em;
+      margin-top: 2px;
+      font-size: 11px;
+      color: var(--ink-soft);
+      font-weight: 600;
+      letter-spacing: 0.02em;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 26px;
       font-size: 14px;
-      font-weight: 800;
-      color: var(--navy);
+      font-weight: 600;
+      color: var(--ink);
     }
 
     .nav-links a {
-      opacity: 0.8;
-      transition: 0.2s ease;
+      opacity: 0.72;
+      transition: opacity 0.2s ease, color 0.2s ease;
     }
 
     .nav-links a:hover {
       opacity: 1;
-      color: var(--yellow-deep);
+      color: var(--sun-deep);
     }
 
     .nav-actions {
@@ -147,118 +179,122 @@
 
     .lang-toggle {
       display: flex;
-      align-items: center;
-      gap: 4px;
-      padding: 5px;
+      gap: 2px;
+      padding: 4px;
       border: 1px solid var(--line);
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.72);
+      background: var(--paper);
     }
 
     .lang-btn {
       border: none;
       background: transparent;
-      padding: 8px 12px;
+      padding: 6px 11px;
       border-radius: 999px;
       cursor: pointer;
-      font-size: 13px;
-      font-weight: 900;
-      color: var(--muted);
-      transition: 0.2s ease;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink-soft);
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
     }
 
     .lang-btn.active {
-      background: var(--navy);
-      color: var(--white);
+      background: var(--ink);
+      color: var(--paper);
     }
 
     .btn {
       border: none;
-      border-radius: 999px;
-      padding: 13px 19px;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 8px;
-      cursor: pointer;
-      font-weight: 900;
-      transition: 0.2s ease;
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
       white-space: nowrap;
     }
 
     .btn-primary {
-      background: var(--yellow);
-      color: var(--navy);
-      box-shadow: 0 12px 24px rgba(235, 169, 40, 0.26);
+      background: var(--sun);
+      color: var(--ink);
+      box-shadow: 0 4px 14px rgba(232, 168, 56, 0.36);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      background: #ffd36f;
+      background: var(--sun-deep);
+      color: var(--paper);
+      transform: translateY(-1px);
     }
 
     .btn-dark {
-      background: var(--navy);
-      color: var(--white);
-      box-shadow: 0 12px 24px rgba(38, 50, 56, 0.2);
+      background: var(--ink);
+      color: var(--paper);
     }
 
+    .btn-dark:hover { transform: translateY(-1px); }
+
     .btn-light {
-      background: rgba(255, 255, 255, 0.82);
-      color: var(--navy);
+      background: var(--paper);
+      color: var(--ink);
       border: 1px solid var(--line);
+    }
+
+    .btn-light:hover {
+      background: var(--cream-2);
+      transform: translateY(-1px);
     }
 
     .mobile-menu-btn {
       display: none;
-      border: none;
-      background: var(--white);
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      font-size: 22px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--paper);
       cursor: pointer;
-      box-shadow: 0 10px 20px rgba(38, 50, 56, 0.08);
+      font-size: 20px;
     }
 
     .mobile-menu {
       display: none;
-      padding: 0 0 18px;
+      padding-bottom: 14px;
     }
 
-    .mobile-menu.open {
-      display: block;
-    }
+    .mobile-menu.open { display: block; }
 
     .mobile-menu-inner {
-      display: grid;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.82);
+      background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 12px;
+      border-radius: var(--radius-lg);
+      padding: 10px;
+      display: grid;
+      gap: 4px;
     }
 
     .mobile-menu a {
       padding: 12px 14px;
-      border-radius: 14px;
-      font-weight: 900;
-      color: var(--navy);
+      border-radius: 12px;
+      font-weight: 700;
+      color: var(--ink);
     }
 
-    .mobile-menu a:hover {
-      background: var(--cream);
-    }
+    .mobile-menu a:hover { background: var(--cream); }
 
+    /* ───── Hero ───── */
     .hero {
-      padding: 92px 0 70px;
-      position: relative;
+      padding: 80px 0 70px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 52px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 56px;
       align-items: center;
     }
 
@@ -266,577 +302,110 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255, 255, 255, 0.78);
-      color: var(--navy);
+      padding: 7px 14px;
+      background: var(--paper);
       border: 1px solid var(--line);
-      padding: 9px 14px;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: 900;
-      margin-bottom: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sun);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
     }
 
     .hero h1 {
-      font-size: clamp(46px, 7vw, 82px);
-      line-height: 0.98;
-      letter-spacing: -0.075em;
-      color: var(--navy);
-      margin-bottom: 24px;
+      font-family: var(--serif);
+      font-size: clamp(40px, 6.2vw, 72px);
+      line-height: 1.05;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 22px;
     }
 
-    .hero h1 .soft {
-      color: var(--yellow-deep);
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sun-deep);
+      font-weight: 500;
     }
 
-    .hero p {
-      max-width: 620px;
-      color: var(--muted);
-      font-size: clamp(17px, 2vw, 21px);
-      font-weight: 600;
+    .hero h1 .underline {
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .hero h1 .underline::after {
+      content: "";
+      position: absolute;
+      left: -2%;
+      right: -2%;
+      bottom: 0.05em;
+      height: 0.32em;
+      background: var(--sun-soft);
+      z-index: -1;
+      border-radius: 4px;
+    }
+
+    .hero-desc {
+      max-width: 540px;
+      color: var(--ink-soft);
+      font-size: clamp(16px, 1.6vw, 18px);
+      font-weight: 500;
       margin-bottom: 30px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 34px;
+      gap: 10px;
+      margin-bottom: 32px;
     }
 
     .hero-note {
-      display: flex;
+      display: inline-flex;
       align-items: flex-start;
-      gap: 12px;
-      max-width: 600px;
-      padding: 16px 18px;
-      border-radius: 20px;
-      border: 1px solid rgba(139, 201, 166, 0.45);
-      background: rgba(139, 201, 166, 0.13);
-      color: #426b53;
-      font-size: 14px;
-      font-weight: 750;
+      gap: 10px;
+      max-width: 540px;
+      padding: 14px 16px;
+      background: var(--leaf-soft);
+      border-radius: 14px;
+      color: #3d6c52;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.55;
     }
 
+    .hero-note .icon {
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+
+    /* Hero visual — photo collage with "no face" focus */
     .hero-visual {
       position: relative;
-      min-height: 520px;
-    }
-
-    .sun-card {
-      position: absolute;
-      inset: 28px 14px auto auto;
-      width: min(420px, 90%);
-      min-height: 470px;
-      border-radius: 42px;
-      background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(255, 248, 236, 0.9));
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      overflow: hidden;
-      padding: 34px;
-    }
-
-    .sun-card::before {
-      content: "";
-      position: absolute;
-      width: 230px;
-      height: 230px;
-      border-radius: 999px;
-      background: var(--yellow);
-      top: -56px;
-      right: -50px;
-      opacity: 0.9;
-    }
-
-    .sun-card::after {
-      content: "";
-      position: absolute;
-      width: 190px;
-      height: 190px;
-      border-radius: 999px;
-      background: var(--sky);
-      bottom: -58px;
-      left: -54px;
-      opacity: 0.45;
-    }
-
-    .illustration {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 34px;
-    }
-
-    .illustration-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 14px;
-    }
-
-    .badge-card {
-      background: var(--white);
-      border-radius: 22px;
-      padding: 16px;
-      box-shadow: 0 10px 26px rgba(38, 50, 56, 0.1);
-      border: 1px solid var(--line);
-    }
-
-    .badge-card strong {
-      display: block;
-      font-size: 28px;
-      color: var(--navy);
-      letter-spacing: -0.05em;
-      line-height: 1;
-    }
-
-    .badge-card span {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .child-shape {
-      margin: auto;
-      width: 230px;
-      height: 230px;
-      border-radius: 50% 50% 44% 44%;
-      background: linear-gradient(180deg, #ffe4ad, #ffd18d);
-      position: relative;
-      border: 10px solid rgba(255, 255, 255, 0.72);
-      box-shadow: 0 18px 40px rgba(38, 50, 56, 0.12);
-    }
-
-    .child-shape::before,
-    .child-shape::after {
-      content: "";
-      position: absolute;
-      top: 84px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--navy);
-    }
-
-    .child-shape::before {
-      left: 70px;
-    }
-
-    .child-shape::after {
-      right: 70px;
-    }
-
-    .smile {
-      position: absolute;
-      width: 58px;
-      height: 28px;
-      border-bottom: 5px solid var(--navy);
-      border-radius: 0 0 80px 80px;
-      left: 50%;
-      top: 126px;
-      transform: translateX(-50%);
-    }
-
-    .mini-card {
-      position: absolute;
-      z-index: 5;
-      left: 4px;
-      bottom: 54px;
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 24px;
-      padding: 18px;
-      box-shadow: 0 18px 40px rgba(38, 50, 56, 0.2);
-      max-width: 255px;
-    }
-
-    .mini-card strong {
-      display: block;
-      font-size: 15px;
-      margin-bottom: 4px;
-    }
-
-    .mini-card span {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 13px;
-      font-weight: 650;
-    }
-
-    .floating-chip {
-      position: absolute;
-      z-index: 6;
-      right: 0;
-      bottom: 10px;
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 12px 16px;
-      font-weight: 900;
-      color: var(--navy);
-      box-shadow: 0 12px 26px rgba(38, 50, 56, 0.11);
-    }
-
-    section {
-      padding: 82px 0;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 28px;
-      margin-bottom: 34px;
-    }
-
-    .section-kicker {
-      display: inline-flex;
-      color: var(--yellow-deep);
-      font-weight: 950;
-      letter-spacing: 0.02em;
-      margin-bottom: 10px;
-    }
-
-    .section-title {
-      color: var(--navy);
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.12;
-      letter-spacing: -0.055em;
-    }
-
-    .section-desc {
-      color: var(--muted);
-      font-size: 17px;
-      font-weight: 650;
-      max-width: 560px;
-    }
-
-    .stats {
-      padding-top: 0;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .stat-card {
-      background: rgba(255, 255, 255, 0.78);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 14px 36px rgba(38, 50, 56, 0.08);
-    }
-
-    .stat-card strong {
-      display: block;
-      font-size: clamp(28px, 4vw, 42px);
-      line-height: 1;
-      color: var(--navy);
-      letter-spacing: -0.06em;
-      margin-bottom: 8px;
-    }
-
-    .stat-card span {
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    .about-card {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 30px;
-      padding: 36px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 248, 236, 0.9));
-      border: 1px solid rgba(255, 255, 255, 0.9);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
-    }
-
-    .about-symbol {
-      min-height: 330px;
-      border-radius: 28px;
-      background:
-        radial-gradient(circle at 24% 24%, rgba(246, 200, 95, 0.95), transparent 22%),
-        radial-gradient(circle at 76% 36%, rgba(131, 197, 232, 0.78), transparent 24%),
-        radial-gradient(circle at 50% 74%, rgba(139, 201, 166, 0.72), transparent 28%),
-        #fff;
-      border: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-symbol .heart {
-      width: 130px;
-      height: 130px;
-      background: var(--yellow);
-      transform: rotate(45deg);
-      border-radius: 28px;
-      box-shadow: 0 20px 40px rgba(235, 169, 40, 0.28);
-    }
-
-    .about-symbol .heart::before,
-    .about-symbol .heart::after {
-      content: "";
-      position: absolute;
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      background: var(--yellow);
-    }
-
-    .about-symbol .heart::before {
-      left: -64px;
-      top: 0;
-    }
-
-    .about-symbol .heart::after {
-      top: -64px;
-      left: 0;
-    }
-
-    .about-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .about-content p {
-      color: var(--muted);
-      font-size: 18px;
-      font-weight: 650;
-    }
-
-    .check-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 8px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      color: var(--navy);
-      font-weight: 850;
-    }
-
-    .check-icon {
-      flex: 0 0 26px;
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(139, 201, 166, 0.24);
-      color: #3f7b58;
-      font-size: 14px;
-    }
-
-    .program-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 16px;
-    }
-
-    .program-card {
-      background: rgba(255, 255, 255, 0.86);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      min-height: 245px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transition: 0.2s ease;
-    }
-
-    .program-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 38px rgba(38, 50, 56, 0.1);
-    }
-
-    .program-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      font-size: 28px;
-      background: var(--cream);
-      border: 1px solid var(--line);
-    }
-
-    .program-card h3 {
-      color: var(--navy);
-      font-size: 20px;
-      line-height: 1.2;
-      letter-spacing: -0.04em;
-    }
-
-    .program-card p {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 650;
-    }
-
-    .donate-wrap {
-      display: grid;
-      grid-template-columns: 0.86fr 1.14fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .amount-grid {
-      display: grid;
-      gap: 14px;
-    }
-
-    .amount-card {
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 24px;
-      padding: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .amount-card:nth-child(2) {
-      background: #35565f;
-    }
-
-    .amount-card:nth-child(3) {
-      background: #477666;
-    }
-
-    .amount-card:nth-child(4) {
-      background: #bd8023;
-    }
-
-    .amount-card strong {
-      display: block;
-      font-size: 32px;
-      line-height: 1;
-      letter-spacing: -0.04em;
-      margin-bottom: 8px;
-    }
-
-    .amount-card span {
-      color: rgba(255, 255, 255, 0.78);
-      font-weight: 750;
-    }
-
-    .account-panel {
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .account-tabs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .tab-btn {
-      border: 1px solid var(--line);
-      background: var(--cream-2);
-      color: var(--navy);
-      border-radius: 999px;
-      padding: 10px 14px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 900;
-    }
-
-    .tab-btn.active {
-      background: var(--yellow);
-      border-color: transparent;
-    }
-
-    .account-card {
-      display: none;
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 22px;
-      background: var(--cream-2);
-    }
-
-    .account-card.active {
-      display: block;
-    }
-
-    .account-card h3 {
-      color: var(--navy);
-      font-size: 24px;
-      letter-spacing: -0.045em;
-      margin-bottom: 16px;
-    }
-
-    .account-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 14px;
-      padding: 13px 0;
-      border-bottom: 1px dashed rgba(38, 50, 56, 0.16);
-    }
-
-    .account-row:last-of-type {
-      border-bottom: none;
-    }
-
-    .account-row span {
-      color: var(--muted);
-      font-weight: 800;
-    }
-
-    .account-row strong {
-      color: var(--navy);
-      text-align: right;
-      word-break: break-all;
-    }
-
-    .qr-placeholder {
-      margin: 18px 0;
-      height: 150px;
-      border-radius: 22px;
-      border: 2px dashed rgba(38, 50, 56, 0.18);
-      background: rgba(255, 255, 255, 0.65);
-      display: grid;
-      place-items: center;
-      text-align: center;
-      color: var(--muted);
-      font-weight: 900;
-    }
-
-    .account-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .photo-collage {
-      position: relative;
-      min-height: 560px;
+      min-height: 540px;
     }
 
     .photo-card {
       position: absolute;
       overflow: hidden;
-      border-radius: 30px;
-      background: var(--white);
-      border: 8px solid rgba(255, 255, 255, 0.86);
-      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+      background: var(--paper);
+      box-shadow: var(--shadow-lg);
     }
 
     .photo-card img {
@@ -847,171 +416,434 @@
     }
 
     .photo-card.main {
-      top: 20px;
+      top: 0;
       right: 0;
-      width: min(500px, 92%);
-      height: 315px;
+      width: 78%;
+      height: 360px;
     }
 
-    .photo-card.small-a {
+    .photo-card.sub-a {
+      bottom: 90px;
       left: 0;
-      bottom: 118px;
-      width: 46%;
-      height: 210px;
+      width: 50%;
+      height: 220px;
       transform: rotate(-3deg);
     }
 
-    .photo-card.small-b {
-      right: 28px;
+    .photo-card.sub-b {
       bottom: 0;
-      width: 50%;
-      height: 230px;
-      transform: rotate(3deg);
+      right: 6%;
+      width: 44%;
+      height: 200px;
+      transform: rotate(2.5deg);
     }
 
-    .photo-caption {
+    .stamp-card {
       position: absolute;
-      z-index: 8;
-      left: 24px;
-      top: 370px;
-      max-width: 310px;
-      padding: 18px;
-      border-radius: 24px;
-      background: var(--navy);
-      color: var(--white);
-      box-shadow: 0 18px 40px rgba(38, 50, 56, 0.22);
+      z-index: 5;
+      left: 8%;
+      top: 50%;
+      transform: translateY(-30%);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 16px 18px;
+      border-radius: 18px;
+      max-width: 220px;
+      box-shadow: 0 16px 36px rgba(42, 34, 28, 0.28);
     }
 
-    .photo-caption strong {
+    .stamp-card strong {
       display: block;
-      margin-bottom: 4px;
+      font-family: var(--serif);
       font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 4px;
     }
 
-    .photo-caption span {
-      color: rgba(255, 255, 255, 0.76);
+    .stamp-card span {
+      display: block;
+      font-size: 12px;
+      color: rgba(255, 253, 247, 0.72);
+      font-weight: 600;
+    }
+
+    .float-chip {
+      position: absolute;
+      z-index: 6;
+      right: 0;
+      top: 24px;
+      background: var(--paper);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--ink);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--line);
+      transform: rotate(4deg);
+    }
+
+    /* ───── Sections ───── */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 44px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--sun-deep);
+      letter-spacing: 0.01em;
+      margin-bottom: 12px;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: var(--sun-deep);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .section-desc {
+      max-width: 380px;
+      color: var(--ink-soft);
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    /* ───── Operator (Joel) — replaces faceless About ───── */
+    #operator {
+      padding-top: 30px;
+      padding-bottom: 80px;
+    }
+
+    .operator-card {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 0;
+      background: var(--paper);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-md);
+    }
+
+    .operator-side {
+      background:
+        radial-gradient(circle at 30% 30%, var(--sun-soft) 0%, transparent 60%),
+        radial-gradient(circle at 70% 80%, var(--sky-soft) 0%, transparent 60%),
+        var(--cream-2);
+      padding: 44px 36px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+      min-height: 380px;
+    }
+
+    .monogram {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--paper);
+      display: grid;
+      place-items: center;
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      box-shadow: 0 8px 20px rgba(42, 34, 28, 0.24);
+    }
+
+    .operator-numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .number-block strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+    }
+
+    .number-block strong sup {
+      font-size: 18px;
+      vertical-align: super;
+      font-weight: 600;
+      color: var(--sun-deep);
+      margin-left: 2px;
+    }
+
+    .number-block span {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      line-height: 1.4;
+    }
+
+    .operator-message {
+      padding: 44px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .operator-meta {
       font-size: 13px;
       font-weight: 700;
+      color: var(--sun-deep);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .photo-chip {
-      position: absolute;
-      z-index: 9;
-      right: 0;
-      bottom: 252px;
-      background: var(--yellow);
-      color: var(--navy);
-      border-radius: 999px;
-      padding: 12px 16px;
-      font-weight: 950;
-      box-shadow: 0 14px 28px rgba(235, 169, 40, 0.24);
+    .operator-message h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--ink);
     }
 
-    .gallery-grid {
+    .operator-message blockquote {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      font-weight: 500;
+      padding-left: 14px;
+      border-left: 2px solid var(--sun);
+    }
+
+    .operator-message blockquote p + p { margin-top: 12px; }
+
+    .operator-sign {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 18px;
+      color: var(--ink);
+      margin-top: 4px;
+    }
+
+    /* ───── Promises (replaces stats) ───── */
+    .promises-grid {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 120px;
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
     }
 
-    .gallery-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 28px;
-      background: var(--cream-2);
-      border: 1px solid var(--line);
-      box-shadow: 0 14px 34px rgba(38, 50, 56, 0.08);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: 0.25s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.04);
-    }
-
-    .gallery-item::after {
-      content: attr(data-label);
-      position: absolute;
-      left: 14px;
-      bottom: 14px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      background: rgba(38, 50, 56, 0.78);
-      color: var(--white);
-      font-size: 12px;
-      font-weight: 900;
-      backdrop-filter: blur(8px);
-    }
-
-    .gallery-item.wide {
-      grid-column: span 6;
-      grid-row: span 2;
-    }
-
-    .gallery-item.tall {
-      grid-column: span 3;
-      grid-row: span 3;
-    }
-
-    .gallery-item.medium {
-      grid-column: span 3;
-      grid-row: span 2;
-    }
-
-    .gallery-item.full {
-      grid-column: span 6;
-      grid-row: span 3;
-    }
-
-    .story-image {
-      overflow: hidden;
-      background: var(--cream-2);
-    }
-
-    .story-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 26px;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--navy);
-      color: var(--white);
-      padding: 13px 18px;
-      border-radius: 999px;
-      font-weight: 900;
-      box-shadow: 0 18px 40px rgba(38, 50, 56, 0.24);
-      opacity: 0;
-      pointer-events: none;
-      transition: 0.25s ease;
-      z-index: 100;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .transparency {
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 248, 236, 0.5));
-    }
-
-    .report-card {
-      background: rgba(255, 255, 255, 0.9);
+    .promise-card {
+      background: var(--paper);
       border: 1px solid var(--line);
       border-radius: var(--radius-lg);
-      box-shadow: var(--shadow);
+      padding: 24px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .promise-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .promise-num {
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--sun-deep);
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+
+    .promise-card h3 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .promise-card p {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    /* ───── Programs ───── */
+    #programs {
+      background:
+        linear-gradient(180deg, transparent 0%, var(--paper) 12%, var(--paper) 88%, transparent 100%);
+    }
+
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .program-card {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .program-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .program-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+    }
+
+    .program-card:nth-child(1) .program-icon { background: var(--sun-soft); }
+    .program-card:nth-child(2) .program-icon { background: var(--sky-soft); }
+    .program-card:nth-child(3) .program-icon { background: var(--leaf-soft); }
+    .program-card:nth-child(4) .program-icon { background: var(--cream-2); }
+    .program-card:nth-child(5) .program-icon { background: var(--rose-soft); }
+
+    .program-card h3 {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .program-card p {
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      font-weight: 500;
+    }
+
+    /* ───── Records (Stories + Gallery merged) ───── */
+    .records-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 130px;
+      gap: 14px;
+    }
+
+    .record-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+      background: var(--cream-2);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .record-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .record-item:hover img { transform: scale(1.05); }
+
+    .record-item.feature {
+      grid-column: span 7;
+      grid-row: span 3;
+    }
+
+    .record-item.tall {
+      grid-column: span 5;
+      grid-row: span 3;
+    }
+
+    .record-item.wide {
+      grid-column: span 6;
+      grid-row: span 2;
+    }
+
+    .record-item.square {
+      grid-column: span 3;
+      grid-row: span 2;
+    }
+
+    .record-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 14px 16px;
+      background: linear-gradient(180deg, transparent 0%, rgba(42, 34, 28, 0.78) 100%);
+      color: var(--paper);
+    }
+
+    .record-overlay .meta {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--sun-soft);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .record-overlay .title {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    .record-item.feature .record-overlay .title { font-size: 22px; }
+
+    /* ───── Transparency ───── */
+    #transparency { background: var(--paper); }
+
+    .report-card {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
       overflow: hidden;
     }
 
@@ -1019,25 +851,43 @@
       padding: 28px;
       display: flex;
       justify-content: space-between;
-      gap: 20px;
       align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
       border-bottom: 1px solid var(--line);
     }
 
     .report-top h3 {
-      color: var(--navy);
-      font-size: 26px;
-      letter-spacing: -0.045em;
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 4px;
     }
 
     .report-top p {
-      color: var(--muted);
-      font-weight: 650;
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 500;
     }
 
-    .table-wrap {
-      overflow-x: auto;
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 10px;
+      background: var(--sun-soft);
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--sun-deep);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
+
+    .table-wrap { overflow-x: auto; }
 
     table {
       width: 100%;
@@ -1045,155 +895,324 @@
       min-width: 720px;
     }
 
-    th,
-    td {
-      padding: 18px 22px;
-      border-bottom: 1px solid var(--line);
+    th, td {
+      padding: 16px 22px;
       text-align: left;
-      vertical-align: top;
+      border-bottom: 1px solid var(--line);
     }
 
     th {
       background: var(--cream-2);
-      color: var(--navy);
-      font-size: 13px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
+      font-weight: 800;
+      color: var(--ink-soft);
     }
 
     td {
-      color: var(--text);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    td.muted { color: var(--ink-mute); font-weight: 500; font-style: italic; }
+
+    .status-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
       font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .status-prep {
+      background: var(--sun-soft);
+      color: var(--sun-deep);
+    }
+
+    .status-soon {
+      background: var(--cream-2);
+      color: var(--ink-soft);
     }
 
     .proof-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 14px;
       padding: 28px;
     }
 
     .proof-card {
-      border-radius: 22px;
-      background: var(--cream-2);
+      background: var(--paper);
       border: 1px solid var(--line);
+      border-radius: var(--radius-md);
       padding: 20px;
+    }
+
+    .proof-card .proof-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: var(--sky-soft);
+      margin-bottom: 12px;
+      font-size: 16px;
     }
 
     .proof-card strong {
       display: block;
-      color: var(--navy);
-      font-size: 18px;
-      margin-bottom: 8px;
-      letter-spacing: -0.035em;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 4px;
     }
 
     .proof-card span {
-      color: var(--muted);
-      font-weight: 650;
-      font-size: 14px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 500;
+      line-height: 1.55;
     }
 
-    .stories-grid {
+    /* ───── Donate ───── */
+    .donate-wrap {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 24px;
+      align-items: start;
     }
 
-    .story-card {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid var(--line);
-      border-radius: 28px;
+    .amount-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .amount-card {
+      padding: 22px;
+      border-radius: var(--radius-lg);
+      color: var(--ink);
+      position: relative;
       overflow: hidden;
-      box-shadow: 0 16px 38px rgba(38, 50, 56, 0.08);
     }
 
-    .story-image {
-      height: 190px;
-      background:
-        linear-gradient(135deg, rgba(246, 200, 95, 0.86), rgba(131, 197, 232, 0.76)),
-        radial-gradient(circle at 30% 40%, #fff, transparent 22%);
-      display: grid;
-      place-items: center;
-      font-size: 56px;
+    .amount-card:nth-child(1) { background: var(--sun-soft); }
+    .amount-card:nth-child(2) { background: var(--sky-soft); }
+    .amount-card:nth-child(3) { background: var(--leaf-soft); }
+    .amount-card:nth-child(4) { background: var(--rose-soft); }
+
+    .amount-card strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: 4px;
     }
 
-    .story-body {
+    .amount-won {
+      font-size: 12px;
+      color: var(--ink-soft);
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    .amount-card p {
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .account-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .account-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+
+    .tab-btn {
+      border: 1px solid var(--line);
+      background: var(--cream);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 700;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover { background: var(--cream-2); }
+
+    .tab-btn.active {
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .account-card {
+      display: none;
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
       padding: 22px;
     }
 
-    .story-meta {
-      color: var(--yellow-deep);
-      font-weight: 950;
+    .account-card.active { display: block; }
+
+    .account-card h3 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .account-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: 14px;
+    }
+
+    .account-row:last-of-type { border-bottom: none; }
+
+    .account-row span {
+      color: var(--ink-soft);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .account-row strong {
+      color: var(--ink);
+      font-weight: 700;
+      text-align: right;
+      word-break: break-all;
+    }
+
+    .pending {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--sun-deep);
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .pending::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--sun-deep);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .qr-placeholder {
+      margin: 16px 0;
+      height: 130px;
+      border-radius: var(--radius-md);
+      border: 2px dashed var(--line);
+      background: var(--paper);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--ink-mute);
       font-size: 13px;
-      margin-bottom: 8px;
+      font-weight: 700;
     }
 
-    .story-body h3 {
-      color: var(--navy);
-      font-size: 22px;
-      letter-spacing: -0.045em;
-      line-height: 1.18;
-      margin-bottom: 10px;
+    .account-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
     }
 
-    .story-body p {
-      color: var(--muted);
-      font-weight: 650;
-      font-size: 15px;
-    }
-
+    /* ───── Contact ───── */
     .contact-wrap {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 24px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 22px;
     }
 
     .contact-info,
     .contact-form {
-      background: rgba(255, 255, 255, 0.9);
+      background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
+      border-radius: var(--radius-xl);
       padding: 28px;
-      box-shadow: 0 16px 38px rgba(38, 50, 56, 0.08);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-info h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 18px;
     }
 
     .contact-list {
       display: grid;
-      gap: 14px;
-      margin-top: 22px;
+      gap: 10px;
     }
 
     .contact-item {
       display: flex;
       gap: 12px;
-      padding: 16px;
-      background: var(--cream-2);
+      padding: 14px;
+      background: var(--cream);
       border: 1px solid var(--line);
-      border-radius: 20px;
+      border-radius: var(--radius-md);
+      transition: background 0.2s ease;
     }
 
-    .contact-item i {
-      font-style: normal;
-      width: 38px;
-      height: 38px;
-      border-radius: 14px;
+    .contact-item:hover { background: var(--cream-2); }
+
+    .contact-item .ic {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      border-radius: 10px;
+      background: var(--sun-soft);
       display: grid;
       place-items: center;
-      background: rgba(246, 200, 95, 0.28);
-      flex: 0 0 38px;
+      font-size: 16px;
     }
 
     .contact-item strong {
       display: block;
-      color: var(--navy);
-      line-height: 1.2;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 2px;
     }
 
     .contact-item span {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 650;
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 500;
     }
 
     .form-grid {
@@ -1204,1081 +1223,828 @@
 
     .field {
       display: grid;
-      gap: 8px;
+      gap: 6px;
     }
 
-    .field.full {
-      grid-column: 1 / -1;
-    }
+    .field.full { grid-column: 1 / -1; }
 
     label {
-      color: var(--navy);
-      font-weight: 900;
-      font-size: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
     }
 
-    input,
-    select,
-    textarea {
+    input, select, textarea {
       border: 1px solid var(--line);
-      background: var(--cream-2);
-      border-radius: 16px;
-      padding: 14px 15px;
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-weight: 500;
       outline: none;
-      color: var(--text);
-      transition: 0.2s ease;
+      transition: all 0.2s ease;
+      font-family: inherit;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--yellow-deep);
-      box-shadow: 0 0 0 4px rgba(246, 200, 95, 0.18);
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--sun-deep);
+      background: var(--paper);
+      box-shadow: 0 0 0 4px rgba(232, 168, 56, 0.16);
     }
 
     textarea {
-      min-height: 140px;
+      min-height: 130px;
       resize: vertical;
     }
 
+    /* ───── Footer ───── */
     .footer {
-      background: var(--navy);
-      color: var(--white);
-      padding: 54px 0 30px;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 56px 0 28px;
+      margin-top: 60px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr 0.8fr;
-      gap: 28px;
-      padding-bottom: 34px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+      grid-template-columns: 1.4fr 0.8fr 0.8fr;
+      gap: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(255, 253, 247, 0.12);
     }
 
-    .footer h3,
-    .footer h4 {
-      letter-spacing: -0.04em;
-      margin-bottom: 12px;
+    .footer-brand {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 14px;
     }
 
-    .footer p,
-    .footer li {
-      color: rgba(255, 255, 255, 0.72);
-      font-weight: 650;
-      list-style: none;
+    .footer-brand .logo-mark {
+      background: var(--paper);
+      box-shadow: none;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .footer-brand span {
+      display: block;
+      font-size: 12px;
+      color: rgba(255, 253, 247, 0.6);
+      margin-top: 2px;
+    }
+
+    .footer p {
+      font-size: 13.5px;
+      color: rgba(255, 253, 247, 0.7);
+      font-weight: 500;
+      line-height: 1.65;
       margin-bottom: 8px;
     }
 
+    .footer h4 {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+      color: var(--paper);
+      text-transform: uppercase;
+    }
+
+    .footer ul { list-style: none; }
+
+    .footer li {
+      font-size: 13px;
+      color: rgba(255, 253, 247, 0.7);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .footer li a:hover { color: var(--sun); }
+
     .footer-bottom {
-      padding-top: 22px;
+      padding-top: 24px;
       display: flex;
       justify-content: space-between;
       gap: 16px;
       flex-wrap: wrap;
-      color: rgba(255, 255, 255, 0.62);
-      font-size: 14px;
+      font-size: 12px;
+      color: rgba(255, 253, 247, 0.5);
+      font-weight: 500;
+    }
+
+    /* ───── Toast ───── */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: var(--paper);
+      padding: 12px 20px;
+      border-radius: 999px;
+      font-size: 13px;
       font-weight: 700;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      z-index: 100;
     }
 
-    .footer a:hover {
-      color: var(--yellow);
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
 
-    @media (max-width: 1060px) {
+    /* ───── Responsive ───── */
+    @media (max-width: 1024px) {
       .nav-links,
-      .nav-actions .btn-primary {
-        display: none;
-      }
+      .nav-actions .btn-primary { display: none; }
 
-      .mobile-menu-btn {
-        display: grid;
-        place-items: center;
-      }
+      .mobile-menu-btn { display: grid; place-items: center; }
 
       .hero-grid,
-      .about-card,
+      .operator-card,
       .donate-wrap,
-      .contact-wrap {
-        grid-template-columns: 1fr;
-      }
+      .contact-wrap { grid-template-columns: 1fr; }
 
-      .hero-visual {
-        min-height: 560px;
-      }
+      .hero-visual { min-height: 480px; }
 
-      .photo-card.main {
-        width: 100%;
-      }
+      .promises-grid,
+      .program-grid,
+      .proof-grid { grid-template-columns: repeat(2, 1fr); }
 
-      .gallery-grid {
+      .records-grid {
         grid-auto-rows: 110px;
       }
 
-      .gallery-item.wide,
-      .gallery-item.full {
-        grid-column: span 6;
-      }
+      .record-item.feature,
+      .record-item.tall { grid-column: span 12; grid-row: span 3; }
+      .record-item.wide,
+      .record-item.square { grid-column: span 6; grid-row: span 2; }
 
-      .gallery-item.tall,
-      .gallery-item.medium {
-        grid-column: span 6;
-        grid-row: span 2;
-      }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
 
-      .sun-card {
-        position: relative;
-        inset: auto;
-        width: 100%;
-      }
-
-      .program-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stats-grid,
-      .stories-grid,
-      .proof-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .operator-side { padding: 36px 28px; }
+      .operator-message { padding: 36px 28px; }
     }
 
-    @media (max-width: 720px) {
-      .container {
-        width: min(100% - 26px, 1140px);
-      }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 32px, 1180px); }
 
-      .nav {
-        height: 70px;
-      }
-
-      .logo-text span {
-        display: none;
-      }
-
-      .lang-toggle {
-        padding: 4px;
-      }
-
-      .lang-btn {
-        padding: 7px 9px;
-      }
+      .nav { height: 64px; }
+      .logo-text span { display: none; }
 
       .hero {
-        padding: 54px 0 42px;
+        padding: 40px 0 50px;
       }
 
-      .hero h1 {
-        font-size: 48px;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      section {
-        padding: 58px 0;
-      }
-
-      .section-head {
-        display: grid;
-        align-items: start;
-      }
-
-      .stats-grid,
-      .program-grid,
-      .stories-grid,
-      .proof-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-card,
-      .account-panel,
-      .contact-info,
-      .contact-form {
-        padding: 20px;
-        border-radius: 24px;
-      }
-
-      .sun-card {
-        padding: 22px;
-        min-height: 410px;
-        border-radius: 30px;
-      }
-
-      .child-shape {
-        width: 200px;
-        height: 200px;
-      }
-
-      .mini-card,
-      .floating-chip {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        margin-top: 12px;
-        max-width: none;
-      }
-
-      .hero-visual,
-      .photo-collage {
+      .hero-visual {
         min-height: auto;
       }
 
       .photo-card,
-      .photo-caption,
-      .photo-chip {
+      .stamp-card,
+      .float-chip {
         position: relative;
         inset: auto;
-        left: auto;
-        right: auto;
-        top: auto;
-        bottom: auto;
-        width: 100% !important;
-        height: 220px;
-        transform: none !important;
-        margin-bottom: 14px;
+        transform: none;
+        width: 100%;
+        margin-bottom: 12px;
       }
 
-      .photo-caption,
-      .photo-chip {
-        height: auto;
-      }
+      .photo-card.main { height: 240px; }
+      .photo-card.sub-a { height: 180px; }
+      .photo-card.sub-b { height: 180px; }
+      .stamp-card { max-width: none; }
 
-      .gallery-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 230px;
-      }
+      section { padding: 56px 0; }
 
-      .gallery-item.wide,
-      .gallery-item.tall,
-      .gallery-item.medium,
-      .gallery-item.full {
-        grid-column: span 1;
+      .section-head { grid-template-columns: 1fr; }
+
+      .promises-grid,
+      .program-grid,
+      .proof-grid,
+      .footer-grid { grid-template-columns: 1fr; }
+
+      .form-grid { grid-template-columns: 1fr; }
+
+      .operator-numbers { gap: 16px; }
+      .number-block strong { font-size: 44px; }
+
+      .records-grid {
+        grid-auto-rows: 200px;
+      }
+      .record-item.feature,
+      .record-item.tall,
+      .record-item.wide,
+      .record-item.square {
+        grid-column: span 12;
         grid-row: span 1;
       }
 
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
       .footer-bottom {
-        display: grid;
+        flex-direction: column;
+        gap: 6px;
       }
     }
-
-  /* I Sarang style refresh: warm cream canvas + deep green flagship rhythm */
-  :root {
-    --cream: #f2f0eb;
-    --cream-2: #edebe9;
-    --ceramic: #f7f4ee;
-    --white: #ffffff;
-    --yellow: #00754a;
-    --yellow-deep: #006241;
-    --sky: #d4e9e2;
-    --green: #d4e9e2;
-    --navy: #1e3932;
-    --isarang-green: #006241;
-    --green-accent: #00754a;
-    --house-green: #1e3932;
-    --green-uplift: #2b5148;
-    --green-light: #d4e9e2;
-    --gold: #cba258;
-    --text: rgba(0, 0, 0, 0.87);
-    --muted: rgba(0, 0, 0, 0.58);
-    --line: rgba(0, 0, 0, 0.12);
-    --shadow: 0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24);
-    --radius-lg: 12px;
-    --radius-md: 12px;
-    --radius-sm: 12px;
-  }
-
-  body {
-    background: var(--cream);
-    color: var(--text);
-    line-height: 1.5;
-    letter-spacing: -0.01em;
-  }
-
-  .page {
-    background: var(--cream) !important;
-  }
-
-  .container {
-    width: min(1440px, calc(100% - 80px));
-  }
-
-  .header {
-    background: var(--white) !important;
-    border-bottom: 0 !important;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.10), 0 2px 2px rgba(0,0,0,0.06), 0 0 2px rgba(0,0,0,0.07) !important;
-  }
-
-  .nav {
-    height: 99px;
-  }
-
-  .logo-mark {
-    border-radius: 50% !important;
-    background: var(--isarang-green) !important;
-    box-shadow: 0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24) !important;
-  }
-
-  .logo,
-  .nav-links,
-  .nav-links a,
-  .logo-text strong,
-  .section-title,
-  .program-card h3,
-  .story-body h3,
-  .contact-item strong,
-  label,
-  .stat-card strong,
-  .account-card h3 {
-    color: var(--house-green) !important;
-  }
-
-  .section-kicker,
-  .hero h1 .soft,
-  .story-meta {
-    color: var(--isarang-green) !important;
-  }
-
-  .btn,
-  .lang-btn,
-  .tab-btn {
-    border-radius: 50px !important;
-    transition: all 0.2s ease !important;
-  }
-
-  .btn:active,
-  .lang-btn:active,
-  .tab-btn:active,
-  .copy-btn:active {
-    transform: scale(0.95) !important;
-  }
-
-  .btn-primary {
-    background: var(--green-accent) !important;
-    color: var(--white) !important;
-    border: 1px solid var(--green-accent) !important;
-    box-shadow: none !important;
-  }
-
-  .btn-primary:hover {
-    background: var(--isarang-green) !important;
-    transform: scale(0.95) !important;
-  }
-
-  .btn-light {
-    background: transparent !important;
-    color: var(--green-accent) !important;
-    border: 1px solid var(--green-accent) !important;
-  }
-
-  .btn-dark,
-  .lang-btn.active {
-    background: var(--house-green) !important;
-    color: var(--white) !important;
-  }
-
-  .hero {
-    padding: 96px 0 64px !important;
-  }
-
-  .eyebrow {
-    background: var(--white) !important;
-    color: var(--house-green) !important;
-    border: 0 !important;
-    box-shadow: 0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24);
-  }
-
-  .hero h1 {
-    font-size: clamp(42px, 6vw, 72px) !important;
-    line-height: 1.08 !important;
-    letter-spacing: -0.04em !important;
-  }
-
-  .hero p,
-  .section-desc,
-  .about-content p,
-  .program-card p,
-  .story-body p,
-  .contact-item span,
-  .footer p,
-  .footer li {
-    color: var(--muted);
-    font-weight: 400;
-  }
-
-  .hero-note {
-    background: var(--green-light) !important;
-    border: 1px solid rgba(0,98,65,0.18) !important;
-    color: var(--house-green) !important;
-  }
-
-  .photo-card,
-  .stat-card,
-  .about-card,
-  .program-card,
-  .account-panel,
-  .story-card,
-  .contact-info,
-  .contact-form,
-  .gallery-item,
-  .proof-card {
-    border-radius: 12px !important;
-    box-shadow: 0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24) !important;
-  }
-
-  .photo-card {
-    border: 0 !important;
-  }
-
-  .photo-caption {
-    border-radius: 12px !important;
-    background: var(--house-green) !important;
-    box-shadow: 0 0 6px rgba(0,0,0,0.24), 0 8px 12px rgba(0,0,0,0.14) !important;
-  }
-
-  .photo-chip {
-    background: var(--green-accent) !important;
-    color: var(--white) !important;
-    border-radius: 50px !important;
-    box-shadow: 0 0 6px rgba(0,0,0,0.24), 0 8px 12px rgba(0,0,0,0.14) !important;
-  }
-
-  .stats-grid {
-    gap: 24px !important;
-  }
-
-  section {
-    padding: 64px 0 !important;
-  }
-
-  #programs,
-  #transparency,
-  #gallery {
-    background: var(--white) !important;
-  }
-
-  #about,
-  #stories,
-  #contact {
-    background: var(--cream) !important;
-  }
-
-  #donate {
-    background: var(--house-green) !important;
-    color: var(--white) !important;
-  }
-
-  #donate .section-title,
-  #donate .section-kicker {
-    color: var(--white) !important;
-  }
-
-  #donate .section-desc,
-  #donate .amount-card span {
-    color: rgba(255,255,255,0.70) !important;
-  }
-
-  #donate .account-panel,
-  #donate .account-card,
-  #donate .tab-btn {
-    background: var(--white) !important;
-    color: var(--house-green) !important;
-  }
-
-  .tab-btn.active {
-    background: var(--house-green) !important;
-    color: var(--white) !important;
-    border-color: var(--house-green) !important;
-  }
-
-  .amount-card {
-    border-radius: 12px !important;
-    box-shadow: 0 0 0.5px rgba(0,0,0,0.14), 0 1px 1px rgba(0,0,0,0.24) !important;
-  }
-
-  .amount-card:nth-child(1) {
-    background: #006241 !important;
-  }
-
-  .amount-card:nth-child(2) {
-    background: #00754a !important;
-  }
-
-  .amount-card:nth-child(3) {
-    background: #2b5148 !important;
-  }
-
-  .amount-card:nth-child(4) {
-    background: #cba258 !important;
-  }
-
-  .program-icon,
-  .check-icon,
-  .contact-item i {
-    background: var(--green-light) !important;
-    color: var(--isarang-green) !important;
-    border: 0 !important;
-  }
-
-  .about-symbol {
-    background: var(--ceramic) !important;
-    border: 0 !important;
-    border-radius: 12px !important;
-  }
-
-  .about-symbol .heart,
-  .about-symbol .heart::before,
-  .about-symbol .heart::after {
-    background: var(--green-accent) !important;
-  }
-
-  .report-card {
-    background: var(--house-green) !important;
-    color: var(--white) !important;
-    border: 0 !important;
-    border-radius: 12px !important;
-  }
-
-  .report-top h3,
-  .report-card td,
-  .report-card th,
-  .proof-card strong {
-    color: var(--white) !important;
-  }
-
-  .report-top p,
-  .proof-card span {
-    color: rgba(255,255,255,0.70) !important;
-  }
-
-  .report-card th {
-    background: rgba(255,255,255,0.08) !important;
-  }
-
-  .proof-card {
-    background: rgba(255,255,255,0.08) !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
-  }
-
-  .footer {
-    background: var(--house-green) !important;
-  }
-
-  input,
-  select,
-  textarea {
-    border-radius: 4px !important;
-    background: var(--white) !important;
-  }
-
-  input:focus,
-  select:focus,
-  textarea:focus {
-    border-color: var(--green-accent) !important;
-    box-shadow: 0 0 0 4px rgba(0,117,74,0.14) !important;
-  }
-
-  @media (max-width: 720px) {
-    .container {
-      width: min(100% - 32px, 1440px) !important;
-    }
-
-    .nav {
-      height: 72px !important;
-    }
-
-    .hero {
-      padding: 56px 0 40px !important;
-    }
-
-    .hero h1 {
-      font-size: 44px !important;
-    }
-  }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header class="header">
+  <header class="header">
+    <div class="container">
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home" class="logo">
+          <div class="logo-mark" aria-hidden="true">
+            <img src="./assets/isarang%20logo.png" alt="I Sarang" />
+          </div>
+          <div class="logo-text">
+            <strong>I Sarang</strong>
+            <span data-i18n="logoSub">아이사랑 어린이 후원</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="#operator" data-i18n="navOperator">소개</a>
+          <a href="#programs" data-i18n="navPrograms">지원사업</a>
+          <a href="#records" data-i18n="navRecords">활동기록</a>
+          <a href="#transparency" data-i18n="navTransparency">투명경영</a>
+          <a href="#donate" data-i18n="navDonate">후원하기</a>
+          <a href="#contact" data-i18n="navContact">문의</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="lang-toggle">
+            <button class="lang-btn active" type="button" data-lang="ko">KO</button>
+            <button class="lang-btn" type="button" data-lang="en">EN</button>
+          </div>
+          <a href="#donate" class="btn btn-primary" data-i18n="donateBtn">후원하기</a>
+          <button class="mobile-menu-btn" type="button" id="mobileMenuBtn" aria-label="메뉴">☰</button>
+        </div>
+      </nav>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-inner">
+          <a href="#operator" data-i18n="navOperator">소개</a>
+          <a href="#programs" data-i18n="navPrograms">지원사업</a>
+          <a href="#records" data-i18n="navRecords">활동기록</a>
+          <a href="#transparency" data-i18n="navTransparency">투명경영</a>
+          <a href="#donate" data-i18n="navDonate">후원하기</a>
+          <a href="#contact" data-i18n="navContact">문의</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="dot"></span>
+            <span data-i18n="heroEyebrow">필리핀 거주 15년 · 10년째 이웃 아이들과 함께</span>
+          </div>
+          <h1 data-i18n-html="heroTitle">10년의 작은 손길을,<br /><em>이제 함께</em> <span class="underline">이어갑니다.</span></h1>
+          <p class="hero-desc" data-i18n="heroDesc">I Sarang은 필리핀에서 15년 살며 10년째 이웃 아이들에게 손을 내밀어온 조엘이 시작한 어린이 후원 프로젝트입니다.</p>
+          <div class="hero-actions">
+            <a href="#donate" class="btn btn-primary" data-i18n="heroDonate">후원하기</a>
+            <a href="#operator" class="btn btn-light" data-i18n="heroOperator">조엘의 이야기</a>
+            <a href="#records" class="btn btn-dark" data-i18n="heroRecords">활동 보기</a>
+          </div>
+          <div class="hero-note">
+            <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4M12 16h.01"/>
+            </svg>
+            <span data-i18n="heroNote">정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다. 등록 전에는 Foundation 표현 대신 Children Support Project로 안내합니다.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <figure class="photo-card main">
+            <img src="./assets/isarang-hero-group.webp" alt="I Sarang Kids group activity" />
+          </figure>
+          <figure class="photo-card sub-a">
+            <img src="./assets/isarang-food-basket.webp" alt="Food basket prepared for support" />
+          </figure>
+          <figure class="photo-card sub-b">
+            <img src="./assets/isarang-home-support.webp" alt="Home support activity" />
+          </figure>
+          <div class="stamp-card">
+            <strong data-i18n="heroStampTitle">Recorded. Reported.</strong>
+            <span data-i18n="heroStampDesc">받은 만큼 기록하고, 쓴 만큼 보고합니다.</span>
+          </div>
+          <div class="float-chip" data-i18n="heroChip">Small Love · Brighter Tomorrow</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operator (Joel) -->
+    <section id="operator">
       <div class="container">
-        <nav class="nav" aria-label="Main navigation">
-          <a href="#home" class="logo" aria-label="I Sarang home">
-            <div class="logo-mark">♡</div>
-            <div class="logo-text">
-              <strong>I Sarang</strong>
-              <span data-i18n="logoSub">아이사랑 어린이 후원</span>
-            </div>
-          </a>
-
-          <div class="nav-links">
-            <a href="#about" data-i18n="navAbout">소개</a>
-            <a href="#programs" data-i18n="navPrograms">지원사업</a>
-            <a href="#donate" data-i18n="navDonate">후원하기</a>
-            <a href="#stories" data-i18n="navStories">활동소식</a>
-            <a href="#transparency" data-i18n="navTransparency">투명경영</a>
-            <a href="#contact" data-i18n="navContact">문의</a>
+        <div class="section-head">
+          <div>
+            <span class="kicker" data-i18n="opKicker">Operator's Story</span>
+            <h2 class="section-title" data-i18n-html="opTitle">프로젝트는 새로 시작했지만,<br />운영자는 새로 시작하지 않았습니다.</h2>
           </div>
+          <p class="section-desc" data-i18n="opDesc">10년 동안 이어온 개인 활동을 정식 프로젝트로 정리하는 첫걸음입니다.</p>
+        </div>
 
-          <div class="nav-actions">
-            <div class="lang-toggle" aria-label="Language switcher">
-              <button class="lang-btn active" type="button" data-lang="ko">KO</button>
-              <button class="lang-btn" type="button" data-lang="en">EN</button>
+        <div class="operator-card">
+          <div class="operator-side">
+            <div class="monogram" aria-label="Joel">J</div>
+            <div class="operator-numbers">
+              <div class="number-block">
+                <strong>15<sup data-i18n="yearShort">년</sup></strong>
+                <span data-i18n="opNum1">필리핀 거주</span>
+              </div>
+              <div class="number-block">
+                <strong>10<sup data-i18n="yearShort">년</sup></strong>
+                <span data-i18n="opNum2">이웃 아이들과 함께</span>
+              </div>
             </div>
-            <a href="#donate" class="btn btn-primary" data-i18n="donateBtn">후원하기</a>
-            <button class="mobile-menu-btn" type="button" id="mobileMenuBtn" aria-label="Open menu">☰</button>
           </div>
-        </nav>
-
-        <div class="mobile-menu" id="mobileMenu">
-          <div class="mobile-menu-inner">
-            <a href="#about" data-i18n="navAbout">소개</a>
-            <a href="#programs" data-i18n="navPrograms">지원사업</a>
-            <a href="#donate" data-i18n="navDonate">후원하기</a>
-            <a href="#stories" data-i18n="navStories">활동소식</a>
-            <a href="#transparency" data-i18n="navTransparency">투명경영</a>
-            <a href="#contact" data-i18n="navContact">문의</a>
+          <div class="operator-message">
+            <div class="operator-meta" data-i18n="opMeta">From Joel · 운영자 인사</div>
+            <h3 data-i18n="opHeading">"처음엔 동네 아이 한 명의 도시락이었습니다."</h3>
+            <blockquote>
+              <p data-i18n="opP1">필리핀에 자리잡은 지 15년, 우리 동네 아이들에게 작은 도움을 건네온 지 10년이 됐습니다. 처음엔 도시락 한 끼였고, 학용품 한 봉지였습니다.</p>
+              <p data-i18n="opP2">이제는 더 많은 분들의 마음을 모아 더 많은 아이들에게 닿고 싶어 I Sarang이라는 이름으로 정리했습니다. 거창한 약속은 드리지 않습니다. 다만 매달 어디에 어떻게 썼는지 영수증과 함께 보여드리겠습니다.</p>
+            </blockquote>
+            <div class="operator-sign" data-i18n="opSign">— Joel</div>
           </div>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main id="home">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div>
-            <div class="eyebrow" data-i18n="heroEyebrow">필리핀 어린이 후원 프로젝트</div>
-            <h1 data-i18n-html="heroTitle">작은 사랑이 모여<br /><span class="soft">아이들의 내일</span>을 키웁니다.</h1>
-            <p data-i18n="heroDesc">I Sarang은 필리핀 현지 아이들에게 식사, 교육, 의료, 생활 지원을 전하는 어린이 후원 프로젝트입니다.</p>
-            <div class="hero-actions">
-              <a href="#donate" class="btn btn-primary" data-i18n="heroDonate">후원하기</a>
-              <a href="#donate" class="btn btn-light" data-i18n="heroAccount">후원계좌 보기</a>
-              <a href="#stories" class="btn btn-dark" data-i18n="heroWork">활동 보기</a>
-            </div>
-            <div class="hero-note">
-              <span>※</span>
-              <span data-i18n="heroNote">정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다. 등록 전에는 Foundation 표현 대신 Children Support Project로 안내합니다.</span>
-            </div>
-          </div>
-
-          <div class="hero-visual">
-            <div class="photo-collage" aria-label="I Sarang activity photos">
-              <figure class="photo-card main">
-                <img src="./assets/isarang-hero-group.webp" alt="I Sarang Kids group activity in the Philippines" />
-              </figure>
-              <figure class="photo-card small-a">
-                <img src="./assets/isarang-kids-school.webp" alt="Children smiling with school supplies" />
-              </figure>
-              <figure class="photo-card small-b">
-                <img src="./assets/isarang-home-support.webp" alt="I Sarang home visit with food support" />
-              </figure>
-              <div class="photo-caption">
-                <strong data-i18n="miniTitle">Every donation is recorded.</strong>
-                <span data-i18n="miniDesc">모든 후원은 기록하고, 모든 지원은 보고합니다.</span>
-              </div>
-              <div class="photo-chip" data-i18n="floatingChip">Small Love, Brighter Tomorrow</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="stats" aria-label="Donation summary">
-        <div class="container stats-grid">
-          <div class="stat-card">
-            <strong>01</strong>
-            <span data-i18n="statStart">첫걸음 프로젝트</span>
-          </div>
-          <div class="stat-card">
-            <strong>05</strong>
-            <span data-i18n="statPrograms">지원사업 준비</span>
-          </div>
-          <div class="stat-card">
-            <strong>KO/EN</strong>
-            <span data-i18n="statLang">한국어, 영어 지원</span>
-          </div>
-          <div class="stat-card">
-            <strong>Monthly</strong>
-            <span data-i18n="statReport">월별 사용 내역 공개</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="about">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker" data-i18n="aboutKicker">ABOUT I SARANG</span>
-              <h2 class="section-title" data-i18n-html="aboutTitle">아이들의 오늘을 돌보고,<br />내일의 가능성을 지킵니다.</h2>
-            </div>
-            <p class="section-desc" data-i18n="aboutDesc">I Sarang은 작은 후원이 필리핀 아이들의 식사, 배움, 건강, 생활 안정으로 이어지도록 돕는 어린이 후원 프로젝트입니다.</p>
-          </div>
-
-          <div class="about-card">
-            <div class="about-symbol"><div class="heart"></div></div>
-            <div class="about-content">
-              <p data-i18n="aboutP1">우리는 아이들에게 필요한 한 끼, 배움의 기회, 기본적인 의료 지원, 생활 물품을 전하며 작은 후원이 실제 변화로 이어지도록 기록하고 공유합니다.</p>
-              <p data-i18n="aboutP2">처음부터 거창한 약속보다, 확인 가능한 도움과 투명한 보고를 우선합니다.</p>
-              <div class="check-list">
-                <div class="check-item"><span class="check-icon">✓</span><span data-i18n="aboutCheck1">필리핀 현지 아동 지원 중심</span></div>
-                <div class="check-item"><span class="check-icon">✓</span><span data-i18n="aboutCheck2">후원금 사용 내역 월별 공개</span></div>
-                <div class="check-item"><span class="check-icon">✓</span><span data-i18n="aboutCheck3">아이 개인정보와 초상권 보호</span></div>
-                <div class="check-item"><span class="check-icon">✓</span><span data-i18n="aboutCheck4">한국어, 영어 후원 안내 지원</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="programs">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker" data-i18n="programKicker">OUR PROGRAMS</span>
-              <h2 class="section-title" data-i18n-html="programTitle">아이들에게 필요한 도움을<br />가장 현실적인 방식으로 전합니다.</h2>
-            </div>
-            <p class="section-desc" data-i18n="programDesc">식사, 교육, 의료, 생활, 긴급 상황까지 아이의 하루를 지키는 실질적인 지원을 준비합니다.</p>
-          </div>
-
-          <div class="program-grid">
-            <article class="program-card">
-              <div class="program-icon">🍚</div>
-              <h3 data-i18n="program1Title">식사 지원</h3>
-              <p data-i18n="program1Desc">결식 우려 아동에게 식사와 식료품을 지원합니다.</p>
-            </article>
-            <article class="program-card">
-              <div class="program-icon">🎒</div>
-              <h3 data-i18n="program2Title">교육 지원</h3>
-              <p data-i18n="program2Desc">학용품, 교재, 교복 등 배움에 필요한 물품을 지원합니다.</p>
-            </article>
-            <article class="program-card">
-              <div class="program-icon">🩺</div>
-              <h3 data-i18n="program3Title">의료 지원</h3>
-              <p data-i18n="program3Desc">기본 진료, 약품, 건강 관리에 필요한 도움을 전합니다.</p>
-            </article>
-            <article class="program-card">
-              <div class="program-icon">🧼</div>
-              <h3 data-i18n="program4Title">생활 지원</h3>
-              <p data-i18n="program4Desc">의류, 위생용품, 생필품을 지원합니다.</p>
-            </article>
-            <article class="program-card">
-              <div class="program-icon">🌧️</div>
-              <h3 data-i18n="program5Title">긴급 지원</h3>
-              <p data-i18n="program5Desc">태풍, 화재, 질병 등 긴급 상황에 필요한 도움을 전합니다.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="donate">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker" data-i18n="donateKicker">DONATE</span>
-              <h2 class="section-title" data-i18n-html="donateTitle">후원은 쉽게,<br />사용 내역은 투명하게.</h2>
-            </div>
-            <p class="section-desc" data-i18n="donateDesc">필리핀 현지 후원, 한국 후원, 해외 후원 문의까지 한 곳에서 확인할 수 있습니다.</p>
-          </div>
-
-          <div class="donate-wrap">
-            <div class="amount-grid">
-              <div class="amount-card">
-                <strong>₱100</strong>
-                <span data-i18n="amount1">아이의 따뜻한 한 끼를 돕습니다.</span>
-              </div>
-              <div class="amount-card">
-                <strong>₱300</strong>
-                <span data-i18n="amount2">학용품 지원에 사용됩니다.</span>
-              </div>
-              <div class="amount-card">
-                <strong>₱500</strong>
-                <span data-i18n="amount3">위생용품과 건강 키트를 전합니다.</span>
-              </div>
-              <div class="amount-card">
-                <strong>₱1,000</strong>
-                <span data-i18n="amount4">긴급 지원이 필요한 가정에 보탬이 됩니다.</span>
-              </div>
-            </div>
-
-            <div class="account-panel">
-              <div class="account-tabs">
-                <button class="tab-btn active" type="button" data-account="bank" data-i18n="tabBank">현지 은행</button>
-                <button class="tab-btn" type="button" data-account="gcash">GCash</button>
-                <button class="tab-btn" type="button" data-account="maya">Maya</button>
-                <button class="tab-btn" type="button" data-account="korea" data-i18n="tabKorea">한국 계좌</button>
-              </div>
-
-              <div class="account-card active" data-card="bank">
-                <h3 data-i18n="bankTitle">필리핀 현지 은행 송금</h3>
-                <div class="account-row"><span data-i18n="bankNameLabel">은행명</span><strong>BDO / BPI / Metrobank</strong></div>
-                <div class="account-row"><span data-i18n="holderLabel">예금주</span><strong>I Sarang Children Support</strong></div>
-                <div class="account-row"><span data-i18n="numberLabel">계좌번호</span><strong class="copy-value">0000-0000-0000</strong></div>
-                <div class="account-actions">
-                  <button class="btn btn-primary copy-btn" type="button" data-copy="0000-0000-0000" data-i18n="copyBtn">계좌번호 복사하기</button>
-                  <a class="btn btn-light" href="#contact" data-i18n="confirmBtn">후원 확인 보내기</a>
-                </div>
-              </div>
-
-              <div class="account-card" data-card="gcash">
-                <h3>GCash</h3>
-                <div class="account-row"><span data-i18n="nameLabel">이름</span><strong>I Sarang</strong></div>
-                <div class="account-row"><span data-i18n="phoneLabel">번호</span><strong class="copy-value">09XX-XXX-XXXX</strong></div>
-                <div class="qr-placeholder" data-i18n="qrPlaceholder">GCash QR 코드 영역</div>
-                <div class="account-actions">
-                  <button class="btn btn-primary copy-btn" type="button" data-copy="09XX-XXX-XXXX" data-i18n="copyNumberBtn">번호 복사하기</button>
-                  <a class="btn btn-light" href="#contact" data-i18n="confirmBtn">후원 확인 보내기</a>
-                </div>
-              </div>
-
-              <div class="account-card" data-card="maya">
-                <h3>Maya</h3>
-                <div class="account-row"><span data-i18n="nameLabel">이름</span><strong>I Sarang</strong></div>
-                <div class="account-row"><span data-i18n="phoneLabel">번호</span><strong class="copy-value">09XX-XXX-XXXX</strong></div>
-                <div class="qr-placeholder" data-i18n="mayaQrPlaceholder">Maya QR 코드 영역</div>
-                <div class="account-actions">
-                  <button class="btn btn-primary copy-btn" type="button" data-copy="09XX-XXX-XXXX" data-i18n="copyNumberBtn">번호 복사하기</button>
-                  <a class="btn btn-light" href="#contact" data-i18n="confirmBtn">후원 확인 보내기</a>
-                </div>
-              </div>
-
-              <div class="account-card" data-card="korea">
-                <h3 data-i18n="koreaTitle">한국 후원계좌</h3>
-                <div class="account-row"><span data-i18n="bankNameLabel">은행명</span><strong>국민은행</strong></div>
-                <div class="account-row"><span data-i18n="holderLabel">예금주</span><strong>아이사랑</strong></div>
-                <div class="account-row"><span data-i18n="numberLabel">계좌번호</span><strong class="copy-value">000000-00-000000</strong></div>
-                <div class="account-actions">
-                  <button class="btn btn-primary copy-btn" type="button" data-copy="000000-00-000000" data-i18n="copyBtn">계좌번호 복사하기</button>
-                  <a class="btn btn-light" href="#contact" data-i18n="overseasBtn">해외후원 문의</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="transparency" class="transparency">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker" data-i18n="transKicker">TRANSPARENCY</span>
-              <h2 class="section-title" data-i18n-html="transTitle">모든 후원은 기록하고,<br />모든 지원은 보고합니다.</h2>
-            </div>
-            <p class="section-desc" data-i18n="transDesc">후원금이 어디에 어떻게 사용되었는지 월별 보고서, 증빙 자료, 활동 사진으로 공개합니다.</p>
-          </div>
-
-          <div class="report-card">
-            <div class="report-top">
-              <div>
-                <h3 data-i18n="reportTitle">월별 후원금 사용 내역</h3>
-                <p data-i18n="reportDesc">아래 데이터는 예시이며, 실제 운영 시 관리자 페이지와 연결할 수 있습니다.</p>
-              </div>
-              <a href="#contact" class="btn btn-primary" data-i18n="requestReport">보고서 문의</a>
-            </div>
-            <div class="table-wrap">
-              <table aria-label="Monthly donation report">
-                <thead>
-                  <tr>
-                    <th data-i18n="tableMonth">월</th>
-                    <th data-i18n="tableReceived">후원금 수입</th>
-                    <th data-i18n="tableUsed">사용 금액</th>
-                    <th data-i18n="tablePurpose">주요 사용처</th>
-                    <th data-i18n="tableStatus">상태</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>2026.05</td>
-                    <td>₱25,000</td>
-                    <td>₱21,800</td>
-                    <td data-i18n="tablePurpose1">식사 지원, 학용품 키트</td>
-                    <td data-i18n="tableStatus1">보고 준비</td>
-                  </tr>
-                  <tr>
-                    <td>2026.04</td>
-                    <td>₱18,000</td>
-                    <td>₱15,200</td>
-                    <td data-i18n="tablePurpose2">위생용품, 생활용품</td>
-                    <td data-i18n="tableStatus2">보고 준비</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="proof-grid">
-              <div class="proof-card">
-                <strong data-i18n="proof1Title">영수증/증빙</strong>
-                <span data-i18n="proof1Desc">구매 영수증, 전달 확인 자료를 보관합니다.</span>
-              </div>
-              <div class="proof-card">
-                <strong data-i18n="proof2Title">활동 사진</strong>
-                <span data-i18n="proof2Desc">아이 개인정보 보호 원칙에 맞춰 공개합니다.</span>
-              </div>
-              <div class="proof-card">
-                <strong data-i18n="proof3Title">등록 정보</strong>
-                <span data-i18n="proof3Desc">SEC, DSWD 등 공식 정보는 단계별로 업데이트합니다.</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="stories">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker" data-i18n="storiesKicker">STORIES</span>
-              <h2 class="section-title" data-i18n-html="storiesTitle">작은 지원이 닿은 순간을<br />차분하게 기록합니다.</h2>
-            </div>
-            <p class="section-desc" data-i18n="storiesDesc">활동 소식은 아이들의 존엄과 개인정보를 보호하는 방식으로 공유합니다.</p>
-          </div>
-
-          <div class="stories-grid">
-            <article class="story-card">
-              <div class="story-image"><img src="./assets/isarang-kids-school.webp" alt="Children smiling with school supplies" /></div>
-              <div class="story-body">
-                <div class="story-meta" data-i18n="story1Meta">2026.05 · Cebu</div>
-                <h3 data-i18n="story1Title">학용품 키트 전달</h3>
-                <p data-i18n="story1Desc">새 학기를 준비하는 아이들에게 노트, 연필, 색연필, 가방을 전달했습니다.</p>
-              </div>
-            </article>
-            <article class="story-card">
-              <div class="story-image"><img src="./assets/isarang-food-basket.webp" alt="Food supplies prepared for support activity" /></div>
-              <div class="story-body">
-                <div class="story-meta" data-i18n="story2Meta">2026.05 · Local Community</div>
-                <h3 data-i18n="story2Title">따뜻한 식사 나눔</h3>
-                <p data-i18n="story2Desc">지역 아동들에게 식사와 간단한 식료품을 지원했습니다.</p>
-              </div>
-            </article>
-            <article class="story-card">
-              <div class="story-image"><img src="./assets/isarang-pink-kit-children.webp" alt="Children holding support kits" /></div>
-              <div class="story-body">
-                <div class="story-meta" data-i18n="story3Meta">2026.04 · Philippines</div>
-                <h3 data-i18n="story3Title">위생 키트 지원</h3>
-                <p data-i18n="story3Desc">비누, 칫솔, 치약, 수건 등 기본 위생용품을 전달했습니다.</p>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="gallery">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker" data-i18n="galleryKicker">PHOTO GALLERY</span>
-              <h2 class="section-title" data-i18n-html="galleryTitle">현장에서 남긴 기록을<br />사진으로 전합니다.</h2>
-            </div>
-            <p class="section-desc" data-i18n="galleryDesc">지원 활동, 물품 준비, 현지 방문 장면을 한곳에 모았습니다. 실제 운영 시 아이들의 개인정보 보호 기준에 맞춰 공개 범위를 조정하세요.</p>
-          </div>
-
-          <div class="gallery-grid">
-            <figure class="gallery-item wide" data-label="I Sarang Kids"><img src="./assets/isarang-hero-group.webp" alt="I Sarang Kids outdoor group activity" /></figure>
-            <figure class="gallery-item medium" data-label="Home Visit"><img src="./assets/isarang-family-visit.webp" alt="I Sarang family visit with banner" /></figure>
-            <figure class="gallery-item medium" data-label="School Supplies"><img src="./assets/isarang-kids-school.webp" alt="Children with school supplies" /></figure>
-            <figure class="gallery-item tall" data-label="Food Basket"><img src="./assets/isarang-food-basket.webp" alt="Food basket prepared for donation" /></figure>
-            <figure class="gallery-item medium" data-label="Care Kits"><img src="./assets/isarang-yellow-kit.webp" alt="Children with yellow care kits" /></figure>
-            <figure class="gallery-item full" data-label="Activity Day"><img src="./assets/isarang-pink-kit-table.webp" alt="Children preparing support kits" /></figure>
-            <figure class="gallery-item medium" data-label="Support Kits"><img src="./assets/isarang-pink-kit-children.webp" alt="Children holding pink support kits" /></figure>
-            <figure class="gallery-item wide" data-label="Home Support"><img src="./assets/isarang-home-visit-banner.webp" alt="I Sarang home support visit with banner" /></figure>
-            <figure class="gallery-item wide" data-label="Sharing Day"><img src="./assets/isarang-home-support.webp" alt="Food sharing activity inside a home" /></figure>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <div class="container">
-          <div class="section-head">
-            <div>
-              <span class="section-kicker" data-i18n="contactKicker">CONTACT</span>
-              <h2 class="section-title" data-i18n-html="contactTitle">후원, 협력, 현지 활동 문의를<br />남겨주세요.</h2>
-            </div>
-            <p class="section-desc" data-i18n="contactDesc">후원 확인, 물품 후원, 기업 협력, 현지 활동 관련 문의를 받을 수 있습니다.</p>
-          </div>
-
-          <div class="contact-wrap">
-            <div class="contact-info">
-              <h3 data-i18n="contactInfoTitle">연락처 안내</h3>
-              <div class="contact-list">
-                <div class="contact-item"><i>💬</i><div><strong>KakaoTalk</strong><span>@isarang</span></div></div>
-                <div class="contact-item"><i>📘</i><div><strong>Messenger</strong><span>I Sarang Children Support</span></div></div>
-                <div class="contact-item"><i>✉️</i><div><strong>Email</strong><span>contact@isarang.org</span></div></div>
-                <div class="contact-item"><i>📍</i><div><strong data-i18n="areaLabel">운영지역</strong><span>Philippines</span></div></div>
-              </div>
-            </div>
-
-            <form class="contact-form" onsubmit="event.preventDefault(); showToast(currentLang === 'ko' ? '문의 예시 폼입니다. 실제 전송 기능은 연결이 필요합니다.' : 'This is a sample form. Submission requires backend integration.');">
-              <div class="form-grid">
-                <div class="field">
-                  <label for="name" data-i18n="formName">이름</label>
-                  <input id="name" type="text" data-i18n-placeholder="formNamePh" placeholder="이름을 입력해주세요" />
-                </div>
-                <div class="field">
-                  <label for="contactInput" data-i18n="formContact">연락처</label>
-                  <input id="contactInput" type="text" data-i18n-placeholder="formContactPh" placeholder="연락처를 입력해주세요" />
-                </div>
-                <div class="field">
-                  <label for="email" data-i18n="formEmail">이메일</label>
-                  <input id="email" type="email" placeholder="contact@email.com" />
-                </div>
-                <div class="field">
-                  <label for="type" data-i18n="formType">문의 유형</label>
-                  <select id="type">
-                    <option data-i18n="typeDonation">후원 문의</option>
-                    <option data-i18n="typeGoods">물품 후원</option>
-                    <option data-i18n="typePartner">기업/단체 협력</option>
-                    <option data-i18n="typeLocal">현지 활동 문의</option>
-                    <option data-i18n="typeEtc">기타 문의</option>
-                  </select>
-                </div>
-                <div class="field full">
-                  <label for="message" data-i18n="formMessage">문의 내용</label>
-                  <textarea id="message" data-i18n-placeholder="formMessagePh" placeholder="문의 내용을 입력해주세요"></textarea>
-                </div>
-                <div class="field full">
-                  <button class="btn btn-primary" type="submit" data-i18n="formSubmit">문의 보내기</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
+    <!-- Promises (replaces stats) -->
+    <section style="padding-top: 0;">
       <div class="container">
-        <div class="footer-grid">
+        <div class="section-head">
           <div>
-            <h3>I Sarang 아이사랑</h3>
-            <p data-i18n="footerIntro">필리핀 어린이 후원 프로젝트</p>
-            <p data-i18n="footerNotice">공식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다.</p>
+            <span class="kicker" data-i18n="prKicker">Our Promises</span>
+            <h2 class="section-title" data-i18n-html="prTitle">신생 프로젝트라서<br />원칙으로 신뢰를 만듭니다.</h2>
           </div>
-          <div>
-            <h4 data-i18n="footerOrg">단체 정보</h4>
-            <ul>
-              <li>Organization: I Sarang Children Support Project</li>
-              <li>Area: Philippines</li>
-              <li>Registration: To be updated</li>
-            </ul>
-          </div>
-          <div>
-            <h4 data-i18n="footerLinks">바로가기</h4>
-            <ul>
-              <li><a href="#donate" data-i18n="navDonate">후원하기</a></li>
-              <li><a href="#transparency" data-i18n="navTransparency">투명경영</a></li>
-              <li><a href="#contact" data-i18n="navContact">문의</a></li>
-            </ul>
-          </div>
+          <p class="section-desc" data-i18n="prDesc">아직 보여드릴 숫자보다, 지킬 약속이 먼저입니다.</p>
         </div>
-        <div class="footer-bottom">
-          <span>© 2026 I Sarang. All rights reserved.</span>
-          <span data-i18n="privacy">개인정보처리방침 · 후원금 사용 안내</span>
+
+        <div class="promises-grid">
+          <article class="promise-card">
+            <div class="promise-num">No. 01</div>
+            <h3 data-i18n="pr1Title">매달 보고합니다</h3>
+            <p data-i18n="pr1Desc">매월 5일, 받은 금액과 쓴 금액을 영수증과 함께 공개합니다.</p>
+          </article>
+          <article class="promise-card">
+            <div class="promise-num">No. 02</div>
+            <h3 data-i18n="pr2Title">아이를 보호합니다</h3>
+            <p data-i18n="pr2Desc">아이 얼굴과 이름은 보호자 동의 없이 공개하지 않습니다.</p>
+          </article>
+          <article class="promise-card">
+            <div class="promise-num">No. 03</div>
+            <h3 data-i18n="pr3Title">증빙을 남깁니다</h3>
+            <p data-i18n="pr3Desc">10만원 이상 지출은 영수증 사진을 함께 공개합니다.</p>
+          </article>
+          <article class="promise-card">
+            <div class="promise-num">No. 04</div>
+            <h3 data-i18n="pr4Title">크게 약속하지 않습니다</h3>
+            <p data-i18n="pr4Desc">감당할 수 있는 만큼만 받고, 받은 만큼만 씁니다.</p>
+          </article>
         </div>
       </div>
-    </footer>
-  </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker" data-i18n="pgKicker">Our Programs</span>
+            <h2 class="section-title" data-i18n-html="pgTitle">아이들에게 필요한 도움을<br />가장 현실적인 방식으로.</h2>
+          </div>
+          <p class="section-desc" data-i18n="pgDesc">식사, 교육, 의료, 생활, 긴급 — 아이의 하루를 지키는 다섯 가지 지원입니다.</p>
+        </div>
+
+        <div class="program-grid">
+          <article class="program-card">
+            <div class="program-icon">🍚</div>
+            <h3 data-i18n="pg1Title">식사 지원</h3>
+            <p data-i18n="pg1Desc">결식이 우려되는 아동에게 식사와 식료품을 전합니다.</p>
+          </article>
+          <article class="program-card">
+            <div class="program-icon">🎒</div>
+            <h3 data-i18n="pg2Title">교육 지원</h3>
+            <p data-i18n="pg2Desc">학용품, 교재, 교복 등 배움에 필요한 물품을 지원합니다.</p>
+          </article>
+          <article class="program-card">
+            <div class="program-icon">🩺</div>
+            <h3 data-i18n="pg3Title">의료 지원</h3>
+            <p data-i18n="pg3Desc">기본 진료, 약품, 건강 관리에 필요한 도움을 전합니다.</p>
+          </article>
+          <article class="program-card">
+            <div class="program-icon">🧼</div>
+            <h3 data-i18n="pg4Title">생활 지원</h3>
+            <p data-i18n="pg4Desc">의류, 위생용품, 생필품을 전합니다.</p>
+          </article>
+          <article class="program-card">
+            <div class="program-icon">🌧️</div>
+            <h3 data-i18n="pg5Title">긴급 지원</h3>
+            <p data-i18n="pg5Desc">태풍, 화재, 질병 등 긴급 상황에 대응합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Records (Stories + Gallery merged) -->
+    <section id="records">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker" data-i18n="rcKicker">Field Records</span>
+            <h2 class="section-title" data-i18n-html="rcTitle">현장에서 남긴 기록을<br />사진으로 전합니다.</h2>
+          </div>
+          <p class="section-desc" data-i18n="rcDesc">아이들의 존엄과 개인정보를 보호하는 방식으로 활동을 기록합니다.</p>
+        </div>
+
+        <div class="records-grid">
+          <figure class="record-item feature">
+            <img src="./assets/isarang-hero-group.webp" alt="Group activity" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc1Meta">2026.05 · Cebu</div>
+              <div class="title" data-i18n="rc1Title">학용품 키트 전달</div>
+            </div>
+          </figure>
+          <figure class="record-item tall">
+            <img src="./assets/isarang-food-basket.webp" alt="Food basket" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc2Meta">2026.05 · Local</div>
+              <div class="title" data-i18n="rc2Title">따뜻한 식사 나눔</div>
+            </div>
+          </figure>
+          <figure class="record-item wide">
+            <img src="./assets/isarang-pink-kit-table.webp" alt="Kit preparation" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc3Meta">2026.04 · Activity Day</div>
+              <div class="title" data-i18n="rc3Title">위생 키트 준비</div>
+            </div>
+          </figure>
+          <figure class="record-item square">
+            <img src="./assets/isarang-yellow-kit.webp" alt="Yellow kit" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc4Meta">Care Kit</div>
+              <div class="title" data-i18n="rc4Title">생활 키트</div>
+            </div>
+          </figure>
+          <figure class="record-item square">
+            <img src="./assets/isarang-pink-kit-children.webp" alt="Support kit" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc5Meta">Support Kit</div>
+              <div class="title" data-i18n="rc5Title">위생 키트 전달</div>
+            </div>
+          </figure>
+          <figure class="record-item wide">
+            <img src="./assets/isarang-home-visit-banner.webp" alt="Home visit" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc6Meta">2026.04 · Home</div>
+              <div class="title" data-i18n="rc6Title">가정 방문 지원</div>
+            </div>
+          </figure>
+          <figure class="record-item square">
+            <img src="./assets/isarang-home-support.webp" alt="Home sharing" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc7Meta">Sharing</div>
+              <div class="title" data-i18n="rc7Title">식사 나눔</div>
+            </div>
+          </figure>
+          <figure class="record-item square">
+            <img src="./assets/isarang-family-visit.webp" alt="Family visit" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc8Meta">Visit</div>
+              <div class="title" data-i18n="rc8Title">가족 방문</div>
+            </div>
+          </figure>
+          <figure class="record-item square">
+            <img src="./assets/isarang-kids-school.webp" alt="School supplies" />
+            <div class="record-overlay">
+              <div class="meta" data-i18n="rc9Meta">School</div>
+              <div class="title" data-i18n="rc9Title">학용품 지원</div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transparency -->
+    <section id="transparency">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker" data-i18n="trKicker">Transparency</span>
+            <h2 class="section-title" data-i18n-html="trTitle">모든 후원은 기록하고,<br />모든 지원은 보고합니다.</h2>
+          </div>
+          <p class="section-desc" data-i18n="trDesc">매월 5일 보고서, 영수증, 활동 기록을 함께 공개합니다.</p>
+        </div>
+
+        <div class="report-card">
+          <div class="report-top">
+            <div>
+              <div class="badge-soft" data-i18n="trBadge">매월 5일 업데이트</div>
+              <h3 data-i18n="trReportTitle">월별 후원금 사용 내역</h3>
+              <p data-i18n="trReportDesc">아래는 운영 시작 전 예시 데이터입니다. 첫 보고는 후원 시작 다음 달부터 공개됩니다.</p>
+            </div>
+            <a href="#contact" class="btn btn-primary" data-i18n="trReportBtn">보고서 문의</a>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th data-i18n="thMonth">월</th>
+                  <th data-i18n="thReceived">후원금 수입</th>
+                  <th data-i18n="thUsed">사용 금액</th>
+                  <th data-i18n="thPurpose">주요 사용처</th>
+                  <th data-i18n="thStatus">상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2026.06</td>
+                  <td class="muted" data-i18n="trUpcoming">— 집계 예정</td>
+                  <td class="muted" data-i18n="trUpcoming">— 집계 예정</td>
+                  <td class="muted" data-i18n="trAfterStart">후원 시작 후 공개</td>
+                  <td><span class="status-pill status-soon" data-i18n="trStatusSoon">예정</span></td>
+                </tr>
+                <tr>
+                  <td>2026.05</td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td data-i18n="trPreLaunch">프로젝트 사이트 준비 단계</td>
+                  <td><span class="status-pill status-prep" data-i18n="trStatusPrep">준비 중</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="proof-grid">
+            <div class="proof-card">
+              <div class="proof-icon">🧾</div>
+              <strong data-i18n="pf1Title">영수증·증빙</strong>
+              <span data-i18n="pf1Desc">10만원 이상 지출은 영수증 사진을 함께 게시합니다.</span>
+            </div>
+            <div class="proof-card">
+              <div class="proof-icon" style="background: var(--leaf-soft);">📷</div>
+              <strong data-i18n="pf2Title">활동 사진</strong>
+              <span data-i18n="pf2Desc">아이 개인정보 보호 원칙에 맞춰 공개 범위를 조정합니다.</span>
+            </div>
+            <div class="proof-card">
+              <div class="proof-icon" style="background: var(--rose-soft);">📋</div>
+              <strong data-i18n="pf3Title">등록 정보</strong>
+              <span data-i18n="pf3Desc">SEC, DSWD 등 공식 정보는 단계별로 업데이트합니다.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Donate -->
+    <section id="donate">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker" data-i18n="dnKicker">Donate</span>
+            <h2 class="section-title" data-i18n-html="dnTitle">후원은 쉽게,<br />사용 내역은 투명하게.</h2>
+          </div>
+          <p class="section-desc" data-i18n="dnDesc">필리핀 현지 송금, 한국 계좌, 해외 후원 문의를 한곳에서 안내드립니다.</p>
+        </div>
+
+        <div class="donate-wrap">
+          <div class="amount-grid">
+            <div class="amount-card">
+              <strong>₱100 <span class="amount-won">≈ ₩2,400</span></strong>
+              <p data-i18n="am1">아이의 따뜻한 한 끼를 돕습니다.</p>
+            </div>
+            <div class="amount-card">
+              <strong>₱300 <span class="amount-won">≈ ₩7,200</span></strong>
+              <p data-i18n="am2">학용품 지원에 사용됩니다.</p>
+            </div>
+            <div class="amount-card">
+              <strong>₱500 <span class="amount-won">≈ ₩12,000</span></strong>
+              <p data-i18n="am3">위생용품과 건강 키트를 전합니다.</p>
+            </div>
+            <div class="amount-card">
+              <strong>₱1,000 <span class="amount-won">≈ ₩24,000</span></strong>
+              <p data-i18n="am4">긴급 지원이 필요한 가정에 보탬이 됩니다.</p>
+            </div>
+          </div>
+
+          <div class="account-panel">
+            <div class="account-tabs">
+              <button class="tab-btn active" type="button" data-account="korea" data-i18n="tabKorea">한국 계좌</button>
+              <button class="tab-btn" type="button" data-account="bank" data-i18n="tabBank">필리핀 은행</button>
+              <button class="tab-btn" type="button" data-account="gcash">GCash</button>
+              <button class="tab-btn" type="button" data-account="maya">Maya</button>
+            </div>
+
+            <div class="account-card active" data-card="korea">
+              <h3 data-i18n="krTitle">한국 후원계좌</h3>
+              <div class="account-row">
+                <span data-i18n="lblBank">은행명</span>
+                <strong><span class="pending" data-i18n="prepOpen">계좌 개설 준비 중</span></strong>
+              </div>
+              <div class="account-row">
+                <span data-i18n="lblHolder">예금주</span>
+                <strong>아이사랑 (Joel)</strong>
+              </div>
+              <div class="account-row">
+                <span data-i18n="lblNumber">계좌번호</span>
+                <strong><span class="pending" data-i18n="prepDisclose">개설 후 공개 예정</span></strong>
+              </div>
+              <div class="account-row">
+                <span data-i18n="lblOpen">공개 예정</span>
+                <strong data-i18n="krOpenDate">2026년 5월 중</strong>
+              </div>
+              <div class="account-actions">
+                <a class="btn btn-primary" href="#contact" data-i18n="btnInquiryKorea">한국 후원 문의하기</a>
+                <a class="btn btn-light" href="#contact" data-i18n="btnOverseas">해외 후원 문의</a>
+              </div>
+            </div>
+
+            <div class="account-card" data-card="bank">
+              <h3 data-i18n="bkTitle">필리핀 현지 은행 송금</h3>
+              <div class="account-row">
+                <span data-i18n="lblBank">은행명</span>
+                <strong>BDO / BPI / Metrobank</strong>
+              </div>
+              <div class="account-row">
+                <span data-i18n="lblHolder">예금주</span>
+                <strong>I Sarang Children Support</strong>
+              </div>
+              <div class="account-row">
+                <span data-i18n="lblNumber">계좌번호</span>
+                <strong><span class="pending" data-i18n="prepRegister">단체 등록 후 공개</span></strong>
+              </div>
+              <div class="account-actions">
+                <a class="btn btn-primary" href="#contact" data-i18n="btnInquiryBank">송금 문의하기</a>
+                <a class="btn btn-light" href="#contact" data-i18n="btnConfirm">후원 확인 보내기</a>
+              </div>
+            </div>
+
+            <div class="account-card" data-card="gcash">
+              <h3>GCash</h3>
+              <div class="account-row">
+                <span data-i18n="lblName">이름</span>
+                <strong>Joel · I Sarang</strong>
+              </div>
+              <div class="account-row">
+                <span data-i18n="lblPhone">번호</span>
+                <strong><span class="pending" data-i18n="prepGcash">GCash 계정 등록 중</span></strong>
+              </div>
+              <div class="qr-placeholder" data-i18n="qrComingSoon">QR 코드 준비 중</div>
+              <div class="account-actions">
+                <a class="btn btn-primary" href="#contact" data-i18n="btnInquiryGcash">GCash 문의하기</a>
+              </div>
+            </div>
+
+            <div class="account-card" data-card="maya">
+              <h3>Maya</h3>
+              <div class="account-row">
+                <span data-i18n="lblName">이름</span>
+                <strong>Joel · I Sarang</strong>
+              </div>
+              <div class="account-row">
+                <span data-i18n="lblPhone">번호</span>
+                <strong><span class="pending" data-i18n="prepMaya">Maya 계정 등록 중</span></strong>
+              </div>
+              <div class="qr-placeholder" data-i18n="qrComingSoon">QR 코드 준비 중</div>
+              <div class="account-actions">
+                <a class="btn btn-primary" href="#contact" data-i18n="btnInquiryMaya">Maya 문의하기</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker" data-i18n="ctKicker">Contact</span>
+            <h2 class="section-title" data-i18n-html="ctTitle">후원, 협력, 현지 활동 문의를<br />남겨주세요.</h2>
+          </div>
+          <p class="section-desc" data-i18n="ctDesc">조엘에게 직접 닿는 메시지로 전달됩니다.</p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="contact-info">
+            <h3 data-i18n="ctInfoTitle">연락처 안내</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <div class="ic">💬</div>
+                <div><strong>KakaoTalk</strong><span>@isarang</span></div>
+              </div>
+              <div class="contact-item">
+                <div class="ic" style="background: var(--sky-soft);">📘</div>
+                <div><strong>Messenger</strong><span>I Sarang Children Support</span></div>
+              </div>
+              <div class="contact-item">
+                <div class="ic" style="background: var(--leaf-soft);">✉️</div>
+                <div><strong>Email</strong><span>contact@isarang.org</span></div>
+              </div>
+              <div class="contact-item">
+                <div class="ic" style="background: var(--rose-soft);">📍</div>
+                <div><strong data-i18n="lblArea">운영지역</strong><span>Philippines · Operated by Joel</span></div>
+              </div>
+            </div>
+          </div>
+
+          <form class="contact-form" onsubmit="event.preventDefault(); showToast(translations[currentLang].formNotice);">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name" data-i18n="fmName">이름</label>
+                <input id="name" type="text" data-i18n-placeholder="fmNamePh" placeholder="이름을 입력해주세요" />
+              </div>
+              <div class="field">
+                <label for="contactInput" data-i18n="fmContact">연락처</label>
+                <input id="contactInput" type="text" data-i18n-placeholder="fmContactPh" placeholder="연락처를 입력해주세요" />
+              </div>
+              <div class="field">
+                <label for="email" data-i18n="fmEmail">이메일</label>
+                <input id="email" type="email" placeholder="contact@email.com" />
+              </div>
+              <div class="field">
+                <label for="type" data-i18n="fmType">문의 유형</label>
+                <select id="type">
+                  <option data-i18n="tpDonation">후원 문의</option>
+                  <option data-i18n="tpGoods">물품 후원</option>
+                  <option data-i18n="tpPartner">기업/단체 협력</option>
+                  <option data-i18n="tpLocal">현지 활동 문의</option>
+                  <option data-i18n="tpEtc">기타 문의</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="message" data-i18n="fmMessage">문의 내용</label>
+                <textarea id="message" data-i18n-placeholder="fmMessagePh" placeholder="문의 내용을 입력해주세요"></textarea>
+              </div>
+              <div class="field full">
+                <button class="btn btn-primary" type="submit" data-i18n="fmSubmit">문의 보내기</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <div class="logo-mark">
+              <img src="./assets/isarang%20logo.png" alt="I Sarang" />
+            </div>
+            <div>
+              <h3>I Sarang 아이사랑</h3>
+              <span data-i18n="ftSub">Children Support Project · Philippines</span>
+            </div>
+          </div>
+          <p data-i18n="ftIntro">필리핀 거주 15년차, 10년째 이웃 아이들과 함께해온 조엘이 시작한 어린이 후원 프로젝트입니다.</p>
+          <p data-i18n="ftNotice">정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다.</p>
+        </div>
+        <div>
+          <h4 data-i18n="ftOrg">단체 정보</h4>
+          <ul>
+            <li data-i18n="ftOrg1">Project: I Sarang Children Support</li>
+            <li data-i18n="ftOrg2">Operator: Joel</li>
+            <li data-i18n="ftOrg3">Based in: Philippines (15 years)</li>
+            <li data-i18n="ftOrg4">Activity since: 2016</li>
+            <li data-i18n="ftOrg5">Project formalized: 2026</li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-i18n="ftLinks">바로가기</h4>
+          <ul>
+            <li><a href="#operator" data-i18n="navOperator">소개</a></li>
+            <li><a href="#programs" data-i18n="navPrograms">지원사업</a></li>
+            <li><a href="#transparency" data-i18n="navTransparency">투명경영</a></li>
+            <li><a href="#donate" data-i18n="navDonate">후원하기</a></li>
+            <li><a href="#contact" data-i18n="navContact">문의</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 I Sarang. All rights reserved.</span>
+        <span data-i18n="ftPrivacy">개인정보처리방침 · 후원금 사용 안내</span>
+      </div>
+    </div>
+  </footer>
 
   <div class="toast" id="toast">Copied</div>
 
@@ -2286,264 +2052,262 @@
     const translations = {
       ko: {
         logoSub: "아이사랑 어린이 후원",
-        navAbout: "소개",
-        navPrograms: "지원사업",
-        navDonate: "후원하기",
-        navStories: "활동소식",
-        navTransparency: "투명경영",
-        navContact: "문의",
+        navOperator: "소개", navPrograms: "지원사업", navRecords: "활동기록",
+        navTransparency: "투명경영", navDonate: "후원하기", navContact: "문의",
         donateBtn: "후원하기",
-        heroEyebrow: "필리핀 어린이 후원 프로젝트",
-        heroTitle: "작은 사랑이 모여<br /><span class=\"soft\">아이들의 내일</span>을 키웁니다.",
-        heroDesc: "I Sarang은 필리핀 현지 아이들에게 식사, 교육, 의료, 생활 지원을 전하는 어린이 후원 프로젝트입니다.",
-        heroDonate: "후원하기",
-        heroAccount: "후원계좌 보기",
-        heroWork: "활동 보기",
+
+        heroEyebrow: "필리핀 거주 15년 · 10년째 이웃 아이들과 함께",
+        heroTitle: "10년의 작은 손길을,<br /><em>이제 함께</em> <span class=\"underline\">이어갑니다.</span>",
+        heroDesc: "I Sarang은 필리핀에서 15년 살며 10년째 이웃 아이들에게 손을 내밀어온 조엘이 시작한 어린이 후원 프로젝트입니다.",
+        heroDonate: "후원하기", heroOperator: "조엘의 이야기", heroRecords: "활동 보기",
         heroNote: "정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다. 등록 전에는 Foundation 표현 대신 Children Support Project로 안내합니다.",
-        visualPrograms: "지원 영역",
-        visualReport: "기록과 보고",
-        miniTitle: "Every donation is recorded.",
-        miniDesc: "모든 후원은 기록하고, 모든 지원은 보고합니다.",
-        floatingChip: "Small Love, Brighter Tomorrow",
-        statStart: "첫걸음 프로젝트",
-        statPrograms: "지원사업 준비",
-        statLang: "한국어, 영어 지원",
-        statReport: "월별 사용 내역 공개",
-        aboutKicker: "ABOUT I SARANG",
-        aboutTitle: "아이들의 오늘을 돌보고,<br />내일의 가능성을 지킵니다.",
-        aboutDesc: "I Sarang은 작은 후원이 필리핀 아이들의 식사, 배움, 건강, 생활 안정으로 이어지도록 돕는 어린이 후원 프로젝트입니다.",
-        aboutP1: "우리는 아이들에게 필요한 한 끼, 배움의 기회, 기본적인 의료 지원, 생활 물품을 전하며 작은 후원이 실제 변화로 이어지도록 기록하고 공유합니다.",
-        aboutP2: "처음부터 거창한 약속보다, 확인 가능한 도움과 투명한 보고를 우선합니다.",
-        aboutCheck1: "필리핀 현지 아동 지원 중심",
-        aboutCheck2: "후원금 사용 내역 월별 공개",
-        aboutCheck3: "아이 개인정보와 초상권 보호",
-        aboutCheck4: "한국어, 영어 후원 안내 지원",
-        programKicker: "OUR PROGRAMS",
-        programTitle: "아이들에게 필요한 도움을<br />가장 현실적인 방식으로 전합니다.",
-        programDesc: "식사, 교육, 의료, 생활, 긴급 상황까지 아이의 하루를 지키는 실질적인 지원을 준비합니다.",
-        program1Title: "식사 지원",
-        program1Desc: "결식 우려 아동에게 식사와 식료품을 지원합니다.",
-        program2Title: "교육 지원",
-        program2Desc: "학용품, 교재, 교복 등 배움에 필요한 물품을 지원합니다.",
-        program3Title: "의료 지원",
-        program3Desc: "기본 진료, 약품, 건강 관리에 필요한 도움을 전합니다.",
-        program4Title: "생활 지원",
-        program4Desc: "의류, 위생용품, 생필품을 지원합니다.",
-        program5Title: "긴급 지원",
-        program5Desc: "태풍, 화재, 질병 등 긴급 상황에 필요한 도움을 전합니다.",
-        donateKicker: "DONATE",
-        donateTitle: "후원은 쉽게,<br />사용 내역은 투명하게.",
-        donateDesc: "필리핀 현지 후원, 한국 후원, 해외 후원 문의까지 한 곳에서 확인할 수 있습니다.",
-        amount1: "아이의 따뜻한 한 끼를 돕습니다.",
-        amount2: "학용품 지원에 사용됩니다.",
-        amount3: "위생용품과 건강 키트를 전합니다.",
-        amount4: "긴급 지원이 필요한 가정에 보탬이 됩니다.",
-        tabBank: "현지 은행",
-        tabKorea: "한국 계좌",
-        bankTitle: "필리핀 현지 은행 송금",
-        bankNameLabel: "은행명",
-        holderLabel: "예금주",
-        numberLabel: "계좌번호",
-        nameLabel: "이름",
-        phoneLabel: "번호",
-        qrPlaceholder: "GCash QR 코드 영역",
-        mayaQrPlaceholder: "Maya QR 코드 영역",
-        koreaTitle: "한국 후원계좌",
-        copyBtn: "계좌번호 복사하기",
-        copyNumberBtn: "번호 복사하기",
-        confirmBtn: "후원 확인 보내기",
-        overseasBtn: "해외후원 문의",
-        transKicker: "TRANSPARENCY",
-        transTitle: "모든 후원은 기록하고,<br />모든 지원은 보고합니다.",
-        transDesc: "후원금이 어디에 어떻게 사용되었는지 월별 보고서, 증빙 자료, 활동 사진으로 공개합니다.",
-        reportTitle: "월별 후원금 사용 내역",
-        reportDesc: "아래 데이터는 예시이며, 실제 운영 시 관리자 페이지와 연결할 수 있습니다.",
-        requestReport: "보고서 문의",
-        tableMonth: "월",
-        tableReceived: "후원금 수입",
-        tableUsed: "사용 금액",
-        tablePurpose: "주요 사용처",
-        tableStatus: "상태",
-        tablePurpose1: "식사 지원, 학용품 키트",
-        tablePurpose2: "위생용품, 생활용품",
-        tableStatus1: "보고 준비",
-        tableStatus2: "보고 준비",
-        proof1Title: "영수증/증빙",
-        proof1Desc: "구매 영수증, 전달 확인 자료를 보관합니다.",
-        proof2Title: "활동 사진",
-        proof2Desc: "아이 개인정보 보호 원칙에 맞춰 공개합니다.",
-        proof3Title: "등록 정보",
-        proof3Desc: "SEC, DSWD 등 공식 정보는 단계별로 업데이트합니다.",
-        storiesKicker: "STORIES",
-        storiesTitle: "작은 지원이 닿은 순간을<br />차분하게 기록합니다.",
-        storiesDesc: "활동 소식은 아이들의 존엄과 개인정보를 보호하는 방식으로 공유합니다.",
-        story1Meta: "2026.05 · Cebu",
-        story1Title: "학용품 키트 전달",
-        story1Desc: "새 학기를 준비하는 아이들에게 노트, 연필, 색연필, 가방을 전달했습니다.",
-        story2Meta: "2026.05 · Local Community",
-        story2Title: "따뜻한 식사 나눔",
-        story2Desc: "지역 아동들에게 식사와 간단한 식료품을 지원했습니다.",
-        story3Meta: "2026.04 · Philippines",
-        story3Title: "위생 키트 지원",
-        story3Desc: "비누, 칫솔, 치약, 수건 등 기본 위생용품을 전달했습니다.",
-        galleryKicker: "PHOTO GALLERY",
-        galleryTitle: "현장에서 남긴 기록을<br />사진으로 전합니다.",
-        galleryDesc: "지원 활동, 물품 준비, 현지 방문 장면을 한곳에 모았습니다. 실제 운영 시 아이들의 개인정보 보호 기준에 맞춰 공개 범위를 조정하세요.",
-        contactKicker: "CONTACT",
-        contactTitle: "후원, 협력, 현지 활동 문의를<br />남겨주세요.",
-        contactDesc: "후원 확인, 물품 후원, 기업 협력, 현지 활동 관련 문의를 받을 수 있습니다.",
-        contactInfoTitle: "연락처 안내",
-        areaLabel: "운영지역",
-        formName: "이름",
-        formNamePh: "이름을 입력해주세요",
-        formContact: "연락처",
-        formContactPh: "연락처를 입력해주세요",
-        formEmail: "이메일",
-        formType: "문의 유형",
-        formMessage: "문의 내용",
-        formMessagePh: "문의 내용을 입력해주세요",
-        formSubmit: "문의 보내기",
-        typeDonation: "후원 문의",
-        typeGoods: "물품 후원",
-        typePartner: "기업/단체 협력",
-        typeLocal: "현지 활동 문의",
-        typeEtc: "기타 문의",
-        footerIntro: "필리핀 어린이 후원 프로젝트",
-        footerNotice: "공식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다.",
-        footerOrg: "단체 정보",
-        footerLinks: "바로가기",
-        privacy: "개인정보처리방침 · 후원금 사용 안내",
+        heroStampTitle: "Recorded. Reported.",
+        heroStampDesc: "받은 만큼 기록하고, 쓴 만큼 보고합니다.",
+        heroChip: "Small Love · Brighter Tomorrow",
+
+        opKicker: "Operator's Story",
+        opTitle: "프로젝트는 새로 시작했지만,<br />운영자는 새로 시작하지 않았습니다.",
+        opDesc: "10년 동안 이어온 개인 활동을 정식 프로젝트로 정리하는 첫걸음입니다.",
+        yearShort: "년",
+        opNum1: "필리핀 거주",
+        opNum2: "이웃 아이들과 함께",
+        opMeta: "From Joel · 운영자 인사",
+        opHeading: "\"처음엔 동네 아이 한 명의 도시락이었습니다.\"",
+        opP1: "필리핀에 자리잡은 지 15년, 우리 동네 아이들에게 작은 도움을 건네온 지 10년이 됐습니다. 처음엔 도시락 한 끼였고, 학용품 한 봉지였습니다.",
+        opP2: "이제는 더 많은 분들의 마음을 모아 더 많은 아이들에게 닿고 싶어 I Sarang이라는 이름으로 정리했습니다. 거창한 약속은 드리지 않습니다. 다만 매달 어디에 어떻게 썼는지 영수증과 함께 보여드리겠습니다.",
+        opSign: "— 조엘 (Joel)",
+
+        prKicker: "Our Promises",
+        prTitle: "신생 프로젝트라서<br />원칙으로 신뢰를 만듭니다.",
+        prDesc: "아직 보여드릴 숫자보다, 지킬 약속이 먼저입니다.",
+        pr1Title: "매달 보고합니다",
+        pr1Desc: "매월 5일, 받은 금액과 쓴 금액을 영수증과 함께 공개합니다.",
+        pr2Title: "아이를 보호합니다",
+        pr2Desc: "아이 얼굴과 이름은 보호자 동의 없이 공개하지 않습니다.",
+        pr3Title: "증빙을 남깁니다",
+        pr3Desc: "10만원 이상 지출은 영수증 사진을 함께 공개합니다.",
+        pr4Title: "크게 약속하지 않습니다",
+        pr4Desc: "감당할 수 있는 만큼만 받고, 받은 만큼만 씁니다.",
+
+        pgKicker: "Our Programs",
+        pgTitle: "아이들에게 필요한 도움을<br />가장 현실적인 방식으로.",
+        pgDesc: "식사, 교육, 의료, 생활, 긴급 — 아이의 하루를 지키는 다섯 가지 지원입니다.",
+        pg1Title: "식사 지원", pg1Desc: "결식이 우려되는 아동에게 식사와 식료품을 전합니다.",
+        pg2Title: "교육 지원", pg2Desc: "학용품, 교재, 교복 등 배움에 필요한 물품을 지원합니다.",
+        pg3Title: "의료 지원", pg3Desc: "기본 진료, 약품, 건강 관리에 필요한 도움을 전합니다.",
+        pg4Title: "생활 지원", pg4Desc: "의류, 위생용품, 생필품을 전합니다.",
+        pg5Title: "긴급 지원", pg5Desc: "태풍, 화재, 질병 등 긴급 상황에 대응합니다.",
+
+        rcKicker: "Field Records",
+        rcTitle: "현장에서 남긴 기록을<br />사진으로 전합니다.",
+        rcDesc: "아이들의 존엄과 개인정보를 보호하는 방식으로 활동을 기록합니다.",
+        rc1Meta: "2026.05 · Cebu",       rc1Title: "학용품 키트 전달",
+        rc2Meta: "2026.05 · Local",      rc2Title: "따뜻한 식사 나눔",
+        rc3Meta: "2026.04 · Activity",   rc3Title: "위생 키트 준비",
+        rc4Meta: "Care Kit",             rc4Title: "생활 키트",
+        rc5Meta: "Support Kit",          rc5Title: "위생 키트 전달",
+        rc6Meta: "2026.04 · Home",       rc6Title: "가정 방문 지원",
+        rc7Meta: "Sharing",              rc7Title: "식사 나눔",
+        rc8Meta: "Visit",                rc8Title: "가족 방문",
+        rc9Meta: "School",               rc9Title: "학용품 지원",
+
+        trKicker: "Transparency",
+        trTitle: "모든 후원은 기록하고,<br />모든 지원은 보고합니다.",
+        trDesc: "매월 5일 보고서, 영수증, 활동 기록을 함께 공개합니다.",
+        trBadge: "매월 5일 업데이트",
+        trReportTitle: "월별 후원금 사용 내역",
+        trReportDesc: "아래는 운영 시작 전 예시 데이터입니다. 첫 보고는 후원 시작 다음 달부터 공개됩니다.",
+        trReportBtn: "보고서 문의",
+        thMonth: "월", thReceived: "후원금 수입", thUsed: "사용 금액", thPurpose: "주요 사용처", thStatus: "상태",
+        trUpcoming: "— 집계 예정",
+        trAfterStart: "후원 시작 후 공개",
+        trPreLaunch: "프로젝트 사이트 준비 단계",
+        trStatusSoon: "예정", trStatusPrep: "준비 중",
+        pf1Title: "영수증·증빙", pf1Desc: "10만원 이상 지출은 영수증 사진을 함께 게시합니다.",
+        pf2Title: "활동 사진",   pf2Desc: "아이 개인정보 보호 원칙에 맞춰 공개 범위를 조정합니다.",
+        pf3Title: "등록 정보",   pf3Desc: "SEC, DSWD 등 공식 정보는 단계별로 업데이트합니다.",
+
+        dnKicker: "Donate",
+        dnTitle: "후원은 쉽게,<br />사용 내역은 투명하게.",
+        dnDesc: "필리핀 현지 송금, 한국 계좌, 해외 후원 문의를 한곳에서 안내드립니다.",
+        am1: "아이의 따뜻한 한 끼를 돕습니다.",
+        am2: "학용품 지원에 사용됩니다.",
+        am3: "위생용품과 건강 키트를 전합니다.",
+        am4: "긴급 지원이 필요한 가정에 보탬이 됩니다.",
+        tabKorea: "한국 계좌", tabBank: "필리핀 은행",
+        krTitle: "한국 후원계좌",
+        bkTitle: "필리핀 현지 은행 송금",
+        lblBank: "은행명", lblHolder: "예금주", lblNumber: "계좌번호",
+        lblName: "이름", lblPhone: "번호", lblOpen: "공개 예정",
+        prepOpen: "계좌 개설 준비 중",
+        prepDisclose: "개설 후 공개 예정",
+        prepRegister: "단체 등록 후 공개",
+        prepGcash: "GCash 계정 등록 중",
+        prepMaya: "Maya 계정 등록 중",
+        krOpenDate: "2026년 5월 중",
+        qrComingSoon: "QR 코드 준비 중",
+        btnInquiryKorea: "한국 후원 문의하기",
+        btnInquiryBank: "송금 문의하기",
+        btnInquiryGcash: "GCash 문의하기",
+        btnInquiryMaya: "Maya 문의하기",
+        btnOverseas: "해외 후원 문의",
+        btnConfirm: "후원 확인 보내기",
+
+        ctKicker: "Contact",
+        ctTitle: "후원, 협력, 현지 활동 문의를<br />남겨주세요.",
+        ctDesc: "조엘에게 직접 닿는 메시지로 전달됩니다.",
+        ctInfoTitle: "연락처 안내",
+        lblArea: "운영지역",
+        fmName: "이름", fmNamePh: "이름을 입력해주세요",
+        fmContact: "연락처", fmContactPh: "연락처를 입력해주세요",
+        fmEmail: "이메일", fmType: "문의 유형",
+        fmMessage: "문의 내용", fmMessagePh: "문의 내용을 입력해주세요",
+        fmSubmit: "문의 보내기",
+        tpDonation: "후원 문의", tpGoods: "물품 후원",
+        tpPartner: "기업/단체 협력", tpLocal: "현지 활동 문의", tpEtc: "기타 문의",
+        formNotice: "문의 예시 폼입니다. 실제 전송 기능은 백엔드 연결이 필요합니다.",
+
+        ftSub: "Children Support Project · Philippines",
+        ftIntro: "필리핀 거주 15년차, 10년째 이웃 아이들과 함께해온 조엘이 시작한 어린이 후원 프로젝트입니다.",
+        ftNotice: "정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다.",
+        ftOrg: "단체 정보",
+        ftOrg1: "Project: I Sarang Children Support",
+        ftOrg2: "Operator: Joel",
+        ftOrg3: "Based in: Philippines (15 years)",
+        ftOrg4: "Activity since: 2016",
+        ftOrg5: "Project formalized: 2026",
+        ftLinks: "바로가기",
+        ftPrivacy: "개인정보처리방침 · 후원금 사용 안내",
         copied: "복사되었습니다."
       },
       en: {
         logoSub: "Children Support Project",
-        navAbout: "About",
-        navPrograms: "Programs",
-        navDonate: "Donate",
-        navStories: "Stories",
-        navTransparency: "Transparency",
-        navContact: "Contact",
+        navOperator: "About", navPrograms: "Programs", navRecords: "Records",
+        navTransparency: "Transparency", navDonate: "Donate", navContact: "Contact",
         donateBtn: "Donate",
-        heroEyebrow: "Children Support Project in the Philippines",
-        heroTitle: "Small Love,<br /><span class=\"soft\">Brighter Tomorrow.</span>",
-        heroDesc: "I Sarang supports children in the Philippines through meals, education, healthcare, and daily living assistance.",
-        heroDonate: "Donate Now",
-        heroAccount: "View Donation Account",
-        heroWork: "See Our Work",
-        heroNote: "Registration and local partnership information will be updated as the project becomes formalized. Before official registration, we use Children Support Project instead of Foundation.",
-        visualPrograms: "Support Areas",
-        visualReport: "Recorded & Reported",
-        miniTitle: "Every donation is recorded.",
-        miniDesc: "Every support activity is reported.",
-        floatingChip: "Small Love, Brighter Tomorrow",
-        statStart: "First Step Project",
-        statPrograms: "Programs Prepared",
-        statLang: "KO and EN Support",
-        statReport: "Monthly Reports",
-        aboutKicker: "ABOUT I SARANG",
-        aboutTitle: "We care for children today<br />and protect their tomorrow.",
-        aboutDesc: "I Sarang is a children support project helping small donations reach meals, learning, health, and daily care for children in the Philippines.",
-        aboutP1: "We provide meals, education support, basic healthcare assistance, and daily living supplies. Every donation is recorded and shared so small acts of love can become real change.",
-        aboutP2: "Rather than making oversized promises, we focus on support that can be verified and reported transparently.",
-        aboutCheck1: "Focused on local children in the Philippines",
-        aboutCheck2: "Monthly donation usage reports",
-        aboutCheck3: "Protection of children’s privacy and image rights",
-        aboutCheck4: "Donation guidance in Korean and English",
-        programKicker: "OUR PROGRAMS",
-        programTitle: "We deliver practical support<br />where children need it most.",
-        programDesc: "From meals and education to healthcare, daily care, and emergency support, we prepare practical help for children’s everyday lives.",
-        program1Title: "Meal Support",
-        program1Desc: "We provide meals and food supplies for children in need.",
-        program2Title: "Education Support",
-        program2Desc: "We support school supplies, books, uniforms, and learning needs.",
-        program3Title: "Health Support",
-        program3Desc: "We assist with basic healthcare, medicine, and wellness support.",
-        program4Title: "Daily Care Support",
-        program4Desc: "We provide clothing, hygiene products, and daily necessities.",
-        program5Title: "Emergency Support",
-        program5Desc: "We respond to urgent needs caused by typhoons, fire, illness, or crisis.",
-        donateKicker: "DONATE",
-        donateTitle: "Easy to donate,<br />transparent to follow.",
-        donateDesc: "You can check local Philippines donation, Korea donation, and overseas donation inquiry options in one place.",
-        amount1: "A warm meal for a child.",
-        amount2: "School supplies support.",
-        amount3: "Health and hygiene kit.",
-        amount4: "Emergency family support.",
-        tabBank: "Local Bank",
-        tabKorea: "Korea Account",
-        bankTitle: "Philippines Bank Transfer",
-        bankNameLabel: "Bank",
-        holderLabel: "Account Name",
-        numberLabel: "Account Number",
-        nameLabel: "Name",
-        phoneLabel: "Number",
-        qrPlaceholder: "GCash QR Code Area",
-        mayaQrPlaceholder: "Maya QR Code Area",
-        koreaTitle: "Korea Donation Account",
-        copyBtn: "Copy Account Number",
-        copyNumberBtn: "Copy Number",
-        confirmBtn: "Send Donation Confirmation",
-        overseasBtn: "Overseas Donation Inquiry",
-        transKicker: "TRANSPARENCY",
-        transTitle: "Every donation is recorded.<br />Every support activity is reported.",
-        transDesc: "We share monthly reports, proof of expenses, and activity photos to show how donations are used.",
-        reportTitle: "Monthly Donation Report",
-        reportDesc: "The data below is sample data and can be connected to an admin page during actual operation.",
-        requestReport: "Report Inquiry",
-        tableMonth: "Month",
-        tableReceived: "Received",
-        tableUsed: "Used Amount",
-        tablePurpose: "Main Use",
-        tableStatus: "Status",
-        tablePurpose1: "Meal support, school kits",
-        tablePurpose2: "Hygiene kits, daily supplies",
-        tableStatus1: "Preparing report",
-        tableStatus2: "Preparing report",
-        proof1Title: "Receipts & Proof",
-        proof1Desc: "We keep purchase receipts and delivery confirmation records.",
-        proof2Title: "Activity Photos",
-        proof2Desc: "We share photos based on child privacy protection principles.",
-        proof3Title: "Registration Info",
-        proof3Desc: "Official information such as SEC and DSWD will be updated step by step.",
-        storiesKicker: "STORIES",
-        storiesTitle: "We quietly record moments<br />where support reaches children.",
-        storiesDesc: "Activity stories are shared in a way that protects children’s dignity and privacy.",
-        story1Meta: "May 2026 · Cebu",
-        story1Title: "School Kit Delivery",
-        story1Desc: "We delivered notebooks, pencils, crayons, and school bags to children preparing for the new school year.",
-        story2Meta: "May 2026 · Local Community",
-        story2Title: "Meal Sharing Day",
-        story2Desc: "We provided warm meals and basic food supplies for children in a local community.",
-        story3Meta: "April 2026 · Philippines",
-        story3Title: "Hygiene Kit Support",
-        story3Desc: "We delivered soap, toothbrushes, toothpaste, towels, and basic hygiene supplies.",
-        galleryKicker: "PHOTO GALLERY",
-        galleryTitle: "We share field records<br />through real activity photos.",
-        galleryDesc: "This gallery brings together support activities, supply preparation, and local visits. During actual operation, adjust the public range based on child privacy protection standards.",
-        contactKicker: "CONTACT",
-        contactTitle: "Contact us for donation,<br />partnership, or local activities.",
-        contactDesc: "You can contact us for donation confirmation, goods donation, corporate partnership, or local activity inquiries.",
-        contactInfoTitle: "Contact Information",
-        areaLabel: "Area of Operation",
-        formName: "Name",
-        formNamePh: "Enter your name",
-        formContact: "Contact Number",
-        formContactPh: "Enter your contact number",
-        formEmail: "Email",
-        formType: "Inquiry Type",
-        formMessage: "Message",
-        formMessagePh: "Enter your message",
-        formSubmit: "Submit Inquiry",
-        typeDonation: "Donation Inquiry",
-        typeGoods: "Goods Donation",
-        typePartner: "Partnership",
-        typeLocal: "Local Activity",
-        typeEtc: "Other",
-        footerIntro: "Children Support Project in the Philippines",
-        footerNotice: "Registration and local partnership information will be updated as the project becomes formalized.",
-        footerOrg: "Organization Info",
-        footerLinks: "Quick Links",
-        privacy: "Privacy Policy · Donation Usage Guide",
+
+        heroEyebrow: "15 years in the Philippines · 10 years with neighborhood children",
+        heroTitle: "10 years of quiet help,<br /><em>now opening</em> <span class=\"underline\">to you.</span>",
+        heroDesc: "I Sarang is a children support project started by Joel, who has lived in the Philippines for 15 years and supported neighborhood kids for the past 10.",
+        heroDonate: "Donate Now", heroOperator: "Joel's Story", heroRecords: "See Records",
+        heroNote: "Registration and local partnership information will be updated as the project becomes formalized. Before official registration, we use 'Children Support Project' instead of 'Foundation'.",
+        heroStampTitle: "Recorded. Reported.",
+        heroStampDesc: "Every donation logged. Every act of support reported.",
+        heroChip: "Small Love · Brighter Tomorrow",
+
+        opKicker: "Operator's Story",
+        opTitle: "The project is new.<br />The operator isn't.",
+        opDesc: "I Sarang is a step toward formalizing 10 years of personal support work.",
+        yearShort: "yrs",
+        opNum1: "in the Philippines",
+        opNum2: "with neighborhood kids",
+        opMeta: "From Joel · A note from the operator",
+        opHeading: "\"It started with one packed lunch for one child next door.\"",
+        opP1: "I've lived in the Philippines for 15 years. For the past 10, I've been quietly helping the children in my neighborhood — first with a packed lunch, then a bag of school supplies.",
+        opP2: "Now I'd like to gather more hearts and reach more children, and that's why I started I Sarang. I won't make grand promises. I will, however, show you exactly where every peso goes — with receipts, every month.",
+        opSign: "— Joel",
+
+        prKicker: "Our Promises",
+        prTitle: "We're new,<br />so we lead with principles.",
+        prDesc: "We have promises to keep before we have numbers to show.",
+        pr1Title: "We report monthly",
+        pr1Desc: "On the 5th of every month: received vs. spent, with receipts.",
+        pr2Title: "We protect children",
+        pr2Desc: "Faces and names are not shared without guardian consent.",
+        pr3Title: "We keep proof",
+        pr3Desc: "Any expense above ~$70 USD is published with a receipt photo.",
+        pr4Title: "We don't overpromise",
+        pr4Desc: "We accept only what we can manage and spend only what we receive.",
+
+        pgKicker: "Our Programs",
+        pgTitle: "Practical help,<br />where children need it most.",
+        pgDesc: "Meals, education, healthcare, daily care, and emergency response — five programs to protect a child's day.",
+        pg1Title: "Meal Support", pg1Desc: "Meals and food supplies for children at risk of going hungry.",
+        pg2Title: "Education Support", pg2Desc: "School supplies, books, uniforms, and learning essentials.",
+        pg3Title: "Health Support", pg3Desc: "Basic medical care, medicine, and wellness assistance.",
+        pg4Title: "Daily Care", pg4Desc: "Clothing, hygiene products, and daily necessities.",
+        pg5Title: "Emergency", pg5Desc: "Response for typhoons, fires, illness, and other crises.",
+
+        rcKicker: "Field Records",
+        rcTitle: "Real moments,<br />quietly documented.",
+        rcDesc: "Activity records are shared in ways that protect the dignity and privacy of children.",
+        rc1Meta: "May 2026 · Cebu",       rc1Title: "School Kit Delivery",
+        rc2Meta: "May 2026 · Local",      rc2Title: "Meal Sharing Day",
+        rc3Meta: "Apr 2026 · Activity",   rc3Title: "Hygiene Kit Prep",
+        rc4Meta: "Care Kit",              rc4Title: "Daily Care Kit",
+        rc5Meta: "Support Kit",           rc5Title: "Hygiene Kit Delivery",
+        rc6Meta: "Apr 2026 · Home",       rc6Title: "Home Visit Support",
+        rc7Meta: "Sharing",               rc7Title: "Meal Sharing",
+        rc8Meta: "Visit",                 rc8Title: "Family Visit",
+        rc9Meta: "School",                rc9Title: "School Supplies",
+
+        trKicker: "Transparency",
+        trTitle: "Every donation logged.<br />Every act reported.",
+        trDesc: "Monthly reports, receipts, and field records — published on the 5th of each month.",
+        trBadge: "Updates monthly · 5th",
+        trReportTitle: "Monthly Donation Report",
+        trReportDesc: "Below is sample data from before launch. The first real report will be published the month after donations begin.",
+        trReportBtn: "Request Report",
+        thMonth: "Month", thReceived: "Received", thUsed: "Used", thPurpose: "Main Use", thStatus: "Status",
+        trUpcoming: "— to be tallied",
+        trAfterStart: "After donations begin",
+        trPreLaunch: "Pre-launch site preparation",
+        trStatusSoon: "Upcoming", trStatusPrep: "Preparing",
+        pf1Title: "Receipts & Proof", pf1Desc: "Expenses above $70 are published with receipt photos.",
+        pf2Title: "Activity Photos", pf2Desc: "Shared in line with strict child privacy principles.",
+        pf3Title: "Registration",     pf3Desc: "SEC, DSWD and other formal info will be updated step by step.",
+
+        dnKicker: "Donate",
+        dnTitle: "Easy to give,<br />transparent to follow.",
+        dnDesc: "Local Philippines transfer, Korean account, and overseas inquiry — all in one place.",
+        am1: "A warm meal for a child.",
+        am2: "School supplies support.",
+        am3: "Health & hygiene kit.",
+        am4: "Emergency family support.",
+        tabKorea: "Korea Account", tabBank: "PH Bank",
+        krTitle: "Korea Donation Account",
+        bkTitle: "Philippines Bank Transfer",
+        lblBank: "Bank", lblHolder: "Account Name", lblNumber: "Account Number",
+        lblName: "Name", lblPhone: "Number", lblOpen: "To be opened",
+        prepOpen: "Account opening in progress",
+        prepDisclose: "Will be published once opened",
+        prepRegister: "Published after registration",
+        prepGcash: "Setting up GCash",
+        prepMaya: "Setting up Maya",
+        krOpenDate: "May 2026",
+        qrComingSoon: "QR code coming soon",
+        btnInquiryKorea: "Korea Donation Inquiry",
+        btnInquiryBank: "Bank Transfer Inquiry",
+        btnInquiryGcash: "GCash Inquiry",
+        btnInquiryMaya: "Maya Inquiry",
+        btnOverseas: "Overseas Inquiry",
+        btnConfirm: "Send Confirmation",
+
+        ctKicker: "Contact",
+        ctTitle: "For donation, partnership,<br />or local activity.",
+        ctDesc: "Messages reach Joel directly.",
+        ctInfoTitle: "Contact Information",
+        lblArea: "Area",
+        fmName: "Name", fmNamePh: "Enter your name",
+        fmContact: "Contact", fmContactPh: "Enter your contact number",
+        fmEmail: "Email", fmType: "Inquiry Type",
+        fmMessage: "Message", fmMessagePh: "Enter your message",
+        fmSubmit: "Send Message",
+        tpDonation: "Donation", tpGoods: "Goods Donation",
+        tpPartner: "Partnership", tpLocal: "Local Activity", tpEtc: "Other",
+        formNotice: "This is a sample form. Actual sending requires backend integration.",
+
+        ftSub: "Children Support Project · Philippines",
+        ftIntro: "I Sarang is a children support project started by Joel, who has lived in the Philippines for 15 years and supported neighborhood kids for the past 10.",
+        ftNotice: "Registration and local partnership information will be updated as the project becomes formalized.",
+        ftOrg: "About",
+        ftOrg1: "Project: I Sarang Children Support",
+        ftOrg2: "Operator: Joel",
+        ftOrg3: "Based in: Philippines (15 years)",
+        ftOrg4: "Activity since: 2016",
+        ftOrg5: "Project formalized: 2026",
+        ftLinks: "Quick Links",
+        ftPrivacy: "Privacy Policy · Donation Use Guide",
         copied: "Copied."
       }
     };
@@ -2555,15 +2319,15 @@
       document.documentElement.lang = lang;
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
-        if (translations[lang][key]) el.textContent = translations[lang][key];
+        if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
       });
       document.querySelectorAll("[data-i18n-html]").forEach((el) => {
         const key = el.getAttribute("data-i18n-html");
-        if (translations[lang][key]) el.innerHTML = translations[lang][key];
+        if (translations[lang][key] !== undefined) el.innerHTML = translations[lang][key];
       });
       document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
         const key = el.getAttribute("data-i18n-placeholder");
-        if (translations[lang][key]) el.placeholder = translations[lang][key];
+        if (translations[lang][key] !== undefined) el.placeholder = translations[lang][key];
       });
       document.querySelectorAll(".lang-btn").forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.lang === lang);
@@ -2577,8 +2341,8 @@
     const mobileMenuBtn = document.getElementById("mobileMenuBtn");
     const mobileMenu = document.getElementById("mobileMenu");
     mobileMenuBtn.addEventListener("click", () => {
-      mobileMenu.classList.toggle("open");
-      mobileMenuBtn.textContent = mobileMenu.classList.contains("open") ? "×" : "☰";
+      const open = mobileMenu.classList.toggle("open");
+      mobileMenuBtn.textContent = open ? "×" : "☰";
     });
     mobileMenu.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
@@ -2590,38 +2354,20 @@
     document.querySelectorAll(".tab-btn").forEach((btn) => {
       btn.addEventListener("click", () => {
         const target = btn.dataset.account;
-        document.querySelectorAll(".tab-btn").forEach((item) => item.classList.remove("active"));
-        document.querySelectorAll(".account-card").forEach((card) => card.classList.remove("active"));
+        document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+        document.querySelectorAll(".account-card").forEach((c) => c.classList.remove("active"));
         btn.classList.add("active");
         document.querySelector(`[data-card="${target}"]`).classList.add("active");
       });
     });
 
     const toast = document.getElementById("toast");
-    const showToast = (message) => {
-      toast.textContent = message;
+    const showToast = (msg) => {
+      toast.textContent = msg;
       toast.classList.add("show");
-      window.clearTimeout(window.__toastTimer);
-      window.__toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2100);
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
     };
-
-    document.querySelectorAll(".copy-btn").forEach((btn) => {
-      btn.addEventListener("click", async () => {
-        const text = btn.dataset.copy;
-        try {
-          await navigator.clipboard.writeText(text);
-          showToast(translations[currentLang].copied);
-        } catch (error) {
-          const temp = document.createElement("textarea");
-          temp.value = text;
-          document.body.appendChild(temp);
-          temp.select();
-          document.execCommand("copy");
-          temp.remove();
-          showToast(translations[currentLang].copied);
-        }
-      });
-    });
   </script>
 </body>
 </html>

@@ -79,6 +79,15 @@
     a { color: inherit; text-decoration: none; }
     button, input, textarea, select { font: inherit; color: inherit; }
 
+    h1, h2, h3, .section-title, .hero h1 {
+      text-wrap: balance;
+    }
+
+    p, span, blockquote, .hero-desc, .section-desc {
+      line-break: strict;
+      overflow-wrap: break-word;
+    }
+
     .container {
       width: min(1180px, calc(100% - 48px));
       margin: 0 auto;
@@ -694,6 +703,110 @@
       margin-top: 4px;
     }
 
+
+    /* ───── Local Voices / Recommenders ───── */
+    #local-voices {
+      padding-top: 0;
+      padding-bottom: 78px;
+    }
+
+    .voices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .voice-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      gap: 18px;
+      min-height: 250px;
+    }
+
+    .voice-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .voice-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: var(--cream-2);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .voice-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .voice-person strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 3px;
+    }
+
+    .voice-person span {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--sun-deep);
+      letter-spacing: 0.02em;
+    }
+
+    .voice-quote {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--ink-soft);
+      font-weight: 500;
+      position: relative;
+      padding-left: 14px;
+      border-left: 2px solid var(--sun);
+    }
+
+    .voice-status {
+      align-self: end;
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--leaf-soft);
+      color: #3d6c52;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+    }
+
+    .voice-status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #3d6c52;
+    }
+
     /* ───── Promises (replaces stats) ───── */
     .promises-grid {
       display: grid;
@@ -872,6 +985,25 @@
     }
 
     .record-item.feature .record-overlay .title { font-size: 22px; }
+
+    .photo-consent-note {
+      margin-top: 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--leaf-soft);
+      border-radius: var(--radius-md);
+      color: #3d6c52;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    .photo-consent-note .icon {
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
 
     /* ───── Transparency ───── */
     #transparency { background: var(--paper); }
@@ -1064,6 +1196,17 @@
       color: var(--ink-soft);
       font-weight: 600;
       line-height: 1.5;
+    }
+
+    .currency-note {
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      background: rgba(255, 253, 247, 0.72);
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.55;
     }
 
     .account-panel {
@@ -1415,7 +1558,8 @@
 
       .promises-grid,
       .program-grid,
-      .proof-grid { grid-template-columns: repeat(2, 1fr); }
+      .proof-grid,
+      .voices-grid { grid-template-columns: repeat(2, 1fr); }
 
       .records-grid {
         grid-auto-rows: 110px;
@@ -1433,57 +1577,243 @@
     }
 
     @media (max-width: 640px) {
+      body {
+        word-break: keep-all;
+        line-height: 1.58;
+      }
+
       .container { width: min(100% - 32px, 1180px); }
 
       .nav { height: 64px; }
       .logo-text span { display: none; }
+      .logo-mark { width: 38px; height: 38px; border-radius: 10px; }
 
       .hero {
-        padding: 40px 0 50px;
+        padding: 36px 0 42px;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        padding: 7px 12px;
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: clamp(36px, 11vw, 46px);
+        line-height: 1.08;
+        margin-bottom: 18px;
+      }
+
+      .hero-desc {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 22px;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 22px;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+        padding: 12px 10px;
+        font-size: 13px;
+      }
+
+      .hero-actions .btn:first-child {
+        grid-column: 1 / -1;
+      }
+
+      .hero-note {
+        display: grid;
+        grid-template-columns: 16px 1fr;
+        padding: 12px 13px;
+        font-size: 12.5px;
+        border-radius: 12px;
       }
 
       .hero-visual {
-        min-height: auto;
+        min-height: 356px;
+        display: grid;
+        grid-template-columns: 1.06fr 0.94fr;
+        grid-template-rows: 212px 118px;
+        gap: 10px;
       }
 
-      .photo-card,
-      .stamp-card,
-      .float-chip {
+      .hero-visual .photo-card {
         position: relative;
         inset: auto;
         transform: none;
         width: 100%;
-        margin-bottom: 12px;
+        height: 100%;
+        margin: 0;
+        border-radius: 18px;
+        box-shadow: var(--shadow-md);
       }
 
-      .photo-card.main { height: 240px; }
-      .photo-card.sub-a { height: 180px; }
-      .photo-card.sub-b { height: 180px; }
-      .stamp-card { max-width: none; }
+      .photo-card.main {
+        grid-column: 1 / -1;
+        grid-row: 1;
+      }
 
-      section { padding: 56px 0; }
+      .photo-card.sub-a {
+        grid-column: 1;
+        grid-row: 2;
+      }
 
-      .section-head { grid-template-columns: 1fr; }
+      .photo-card.sub-b {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .stamp-card {
+        position: absolute;
+        left: 12px;
+        bottom: 88px;
+        transform: none;
+        max-width: min(220px, 72%);
+        padding: 12px 13px;
+        border-radius: 14px;
+      }
+
+      .stamp-card strong { font-size: 13px; }
+      .stamp-card span { font-size: 11px; }
+
+      .float-chip {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        transform: none;
+        width: auto;
+        margin: 0;
+        padding: 8px 10px;
+        font-size: 10.5px;
+        box-shadow: var(--shadow-sm);
+      }
+
+      section { padding: 50px 0; }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 26px;
+      }
+
+      .section-title {
+        font-size: clamp(27px, 8vw, 34px);
+        line-height: 1.14;
+      }
+
+      .section-desc {
+        max-width: none;
+        font-size: 14px;
+      }
 
       .promises-grid,
-      .program-grid,
       .proof-grid,
+      .voices-grid,
       .footer-grid { grid-template-columns: 1fr; }
+
+      .program-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .program-card {
+        min-height: 0;
+        padding: 16px 14px;
+        gap: 10px;
+        border-radius: 16px;
+      }
+
+      .program-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        font-size: 19px;
+      }
+
+      .program-card h3 {
+        font-size: 16px;
+      }
+
+      .program-card p {
+        font-size: 12.5px;
+        line-height: 1.5;
+      }
+
+      .program-card:nth-child(5) {
+        grid-column: 1 / -1;
+        min-height: 0;
+      }
 
       .form-grid { grid-template-columns: 1fr; }
 
-      .operator-numbers { gap: 16px; }
-      .number-block strong { font-size: 44px; }
+      .operator-card {
+        border-radius: 22px;
+      }
+
+      .operator-side { padding: 18px; min-height: 0; }
+      .operator-photo-wrap { min-height: 230px; border-radius: 18px; }
+      .operator-numbers { gap: 12px; }
+      .number-block strong { font-size: 40px; }
+      .operator-message { padding: 26px 22px; }
+      .operator-message h3 { font-size: 22px; }
 
       .records-grid {
-        grid-auto-rows: 200px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 132px;
+        gap: 10px;
       }
-      .record-item.feature,
+
+      .record-item.feature {
+        grid-column: 1 / -1;
+        grid-row: span 2;
+      }
+
       .record-item.tall,
       .record-item.wide,
       .record-item.square {
-        grid-column: span 12;
+        grid-column: span 1;
         grid-row: span 1;
+      }
+
+      .record-item:nth-child(n+6) {
+        display: none;
+      }
+
+      .record-overlay {
+        padding: 10px 11px;
+      }
+
+      .record-overlay .meta {
+        font-size: 9.5px;
+        margin-bottom: 2px;
+      }
+
+      .record-overlay .title,
+      .record-item.feature .record-overlay .title {
+        font-size: 13.5px;
+        line-height: 1.25;
+      }
+
+      .donate-wrap,
+      .contact-wrap {
+        gap: 16px;
+      }
+
+      .amount-card,
+      .account-panel,
+      .contact-info,
+      .contact-form {
+        border-radius: 18px;
       }
 
       .footer-bottom {
@@ -1624,6 +1954,57 @@
       </div>
     </section>
 
+    <!-- Local Voices / Recommenders -->
+    <section id="local-voices">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="kicker" data-i18n="lvKicker">Local Voices</span>
+            <h2 class="section-title" data-i18n-html="lvTitle">현지에서 지켜본 사람들의<br />작은 증언을 모읍니다.</h2>
+          </div>
+          <p class="section-desc" data-i18n="lvDesc">동네 학교 선생님, 어른, 교회, 동료 등 조엘의 활동을 가까이서 본 분들의 추천사를 확인 후 공개합니다.</p>
+        </div>
+
+        <div class="voices-grid">
+          <article class="voice-card">
+            <div class="voice-top">
+              <div class="voice-avatar">T</div>
+              <div class="voice-person">
+                <strong data-i18n="lv1Role">동네 학교 선생님</strong>
+                <span data-i18n="lv1Meta">Local Teacher · 확인 예정</span>
+              </div>
+            </div>
+            <p class="voice-quote" data-i18n="lv1Quote">“조엘이 아이들을 어떻게 도왔는지 가까이서 본 현지 선생님의 추천사를 이곳에 공개할 예정입니다.”</p>
+            <div class="voice-status" data-i18n="lvStatus">추천사 확인 중</div>
+          </article>
+
+          <article class="voice-card">
+            <div class="voice-top">
+              <div class="voice-avatar">N</div>
+              <div class="voice-person">
+                <strong data-i18n="lv2Role">동네 어른</strong>
+                <span data-i18n="lv2Meta">Neighborhood Elder · 사진/동의 확인 예정</span>
+              </div>
+            </div>
+            <p class="voice-quote" data-i18n="lv2Quote">“동네에서 오랫동안 이어진 도움과 관계를 확인해줄 수 있는 분의 이야기를 준비하고 있습니다.”</p>
+            <div class="voice-status" data-i18n="lvStatus">추천사 확인 중</div>
+          </article>
+
+          <article class="voice-card">
+            <div class="voice-top">
+              <div class="voice-avatar">C</div>
+              <div class="voice-person">
+                <strong data-i18n="lv3Role">현지 교회·동료</strong>
+                <span data-i18n="lv3Meta">Community Partner · 협력 확인 예정</span>
+              </div>
+            </div>
+            <p class="voice-quote" data-i18n="lv3Quote">“함께 활동한 교회나 동료의 한마디를 받아, 프로젝트의 현지 연결성을 보여주는 공간으로 운영합니다.”</p>
+            <div class="voice-status" data-i18n="lvStatus">추천사 확인 중</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Promises (replaces stats) -->
     <section style="padding-top: 0;">
       <div class="container">
@@ -1649,7 +2030,7 @@
           <article class="promise-card">
             <div class="promise-num">No. 03</div>
             <h3 data-i18n="pr3Title">증빙을 남깁니다</h3>
-            <p data-i18n="pr3Desc">10만원 이상 지출은 영수증 사진을 함께 공개합니다.</p>
+            <p data-i18n="pr3Desc">모든 지출은 월별로 기록하고, 주요 지출과 고액 지출은 영수증 사진을 함께 공개합니다.</p>
           </article>
           <article class="promise-card">
             <div class="promise-num">No. 04</div>
@@ -1777,6 +2158,14 @@
             </div>
           </figure>
         </div>
+
+        <div class="photo-consent-note">
+          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="m9 12 2 2 4-4" />
+          </svg>
+          <span data-i18n="photoConsent">본 사이트의 활동 사진은 보호자 및 관계자의 동의 범위 안에서 사용되며, 요청 시 즉시 비공개 처리합니다.</span>
+        </div>
       </div>
     </section>
 
@@ -1833,7 +2222,7 @@
             <div class="proof-card">
               <div class="proof-icon">🧾</div>
               <strong data-i18n="pf1Title">영수증·증빙</strong>
-              <span data-i18n="pf1Desc">10만원 이상 지출은 영수증 사진을 함께 게시합니다.</span>
+              <span data-i18n="pf1Desc">모든 지출은 월별로 기록하고, 주요 지출과 고액 지출은 영수증 사진을 함께 게시합니다.</span>
             </div>
             <div class="proof-card">
               <div class="proof-icon" style="background: var(--leaf-soft);">📷</div>
@@ -1879,6 +2268,7 @@
               <strong>₱1,000 <span class="amount-won">≈ ₩24,000</span></strong>
               <p data-i18n="am4">긴급 지원이 필요한 가정에 보탬이 됩니다.</p>
             </div>
+            <p class="currency-note" data-i18n="currencyNote">원화 금액은 이해를 돕기 위한 대략적인 환산이며, 실제 환율에 따라 달라질 수 있습니다.</p>
           </div>
 
           <div class="account-panel">
@@ -2055,7 +2445,7 @@
             </div>
           </div>
           <p data-i18n="ftIntro">필리핀 거주 15년차, 10년째 이웃 아이들과 함께해온 조엘이 시작한 어린이 후원 프로젝트입니다.</p>
-          <p data-i18n="ftNotice">정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다.</p>
+          <p data-i18n="ftNotice">정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다. 활동 사진은 동의 범위 안에서 사용되며 요청 시 비공개 처리합니다.</p>
         </div>
         <div>
           <h4 data-i18n="ftOrg">단체 정보</h4>
@@ -2117,6 +2507,20 @@
         opP2: "이제는 더 많은 분들의 마음을 모아 더 많은 아이들에게 닿고 싶어 I Sarang이라는 이름으로 정리했습니다. 거창한 약속은 드리지 않습니다. 다만 매달 어디에 어떻게 썼는지 영수증과 함께 보여드리겠습니다.",
         opSign: "— 조엘 (Joel)",
 
+        lvKicker: "Local Voices",
+        lvTitle: "현지에서 지켜본 사람들의<br />작은 증언을 모읍니다.",
+        lvDesc: "동네 학교 선생님, 어른, 교회, 동료 등 조엘의 활동을 가까이서 본 분들의 추천사를 확인 후 공개합니다.",
+        lv1Role: "동네 학교 선생님",
+        lv1Meta: "Local Teacher · 확인 예정",
+        lv1Quote: "“조엘이 아이들을 어떻게 도왔는지 가까이서 본 현지 선생님의 추천사를 이곳에 공개할 예정입니다.”",
+        lv2Role: "동네 어른",
+        lv2Meta: "Neighborhood Elder · 사진/동의 확인 예정",
+        lv2Quote: "“동네에서 오랫동안 이어진 도움과 관계를 확인해줄 수 있는 분의 이야기를 준비하고 있습니다.”",
+        lv3Role: "현지 교회·동료",
+        lv3Meta: "Community Partner · 협력 확인 예정",
+        lv3Quote: "“함께 활동한 교회나 동료의 한마디를 받아, 프로젝트의 현지 연결성을 보여주는 공간으로 운영합니다.”",
+        lvStatus: "추천사 확인 중",
+
         prKicker: "Our Promises",
         prTitle: "신생 프로젝트라서<br />원칙으로 신뢰를 만듭니다.",
         prDesc: "아직 보여드릴 숫자보다, 지킬 약속이 먼저입니다.",
@@ -2125,7 +2529,7 @@
         pr2Title: "아이를 보호합니다",
         pr2Desc: "아이 얼굴과 이름은 보호자 동의 없이 공개하지 않습니다.",
         pr3Title: "증빙을 남깁니다",
-        pr3Desc: "10만원 이상 지출은 영수증 사진을 함께 공개합니다.",
+        pr3Desc: "모든 지출은 월별로 기록하고, 주요 지출과 고액 지출은 영수증 사진을 함께 공개합니다.",
         pr4Title: "크게 약속하지 않습니다",
         pr4Desc: "감당할 수 있는 만큼만 받고, 받은 만큼만 씁니다.",
 
@@ -2150,6 +2554,7 @@
         rc7Meta: "Sharing",              rc7Title: "식사 나눔",
         rc8Meta: "Visit",                rc8Title: "가족 방문",
         rc9Meta: "School",               rc9Title: "학용품 지원",
+        photoConsent: "본 사이트의 활동 사진은 보호자 및 관계자의 동의 범위 안에서 사용되며, 요청 시 즉시 비공개 처리합니다.",
 
         trKicker: "Transparency",
         trTitle: "모든 후원은 기록하고,<br />모든 지원은 보고합니다.",
@@ -2163,7 +2568,7 @@
         trAfterStart: "후원 시작 후 공개",
         trPreLaunch: "프로젝트 사이트 준비 단계",
         trStatusSoon: "예정", trStatusPrep: "준비 중",
-        pf1Title: "영수증·증빙", pf1Desc: "10만원 이상 지출은 영수증 사진을 함께 게시합니다.",
+        pf1Title: "영수증·증빙", pf1Desc: "모든 지출은 월별로 기록하고, 주요 지출과 고액 지출은 영수증 사진을 함께 게시합니다.",
         pf2Title: "활동 사진",   pf2Desc: "아이 개인정보 보호 원칙에 맞춰 공개 범위를 조정합니다.",
         pf3Title: "등록 정보",   pf3Desc: "SEC, DSWD 등 공식 정보는 단계별로 업데이트합니다.",
 
@@ -2174,6 +2579,7 @@
         am2: "학용품 지원에 사용됩니다.",
         am3: "위생용품과 건강 키트를 전합니다.",
         am4: "긴급 지원이 필요한 가정에 보탬이 됩니다.",
+        currencyNote: "원화 금액은 이해를 돕기 위한 대략적인 환산이며, 실제 환율에 따라 달라질 수 있습니다.",
         tabKorea: "한국 계좌", tabBank: "필리핀 은행",
         krTitle: "한국 후원계좌",
         bkTitle: "필리핀 현지 은행 송금",
@@ -2209,7 +2615,7 @@
 
         ftSub: "Children Support Project · Philippines",
         ftIntro: "필리핀 거주 15년차, 10년째 이웃 아이들과 함께해온 조엘이 시작한 어린이 후원 프로젝트입니다.",
-        ftNotice: "정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다.",
+        ftNotice: "정식 등록 및 현지 협력기관 정보는 사업 단계에 맞춰 순차적으로 공개됩니다. 활동 사진은 동의 범위 안에서 사용되며 요청 시 비공개 처리합니다.",
         ftOrg: "단체 정보",
         ftOrg1: "Project: I Sarang Children Support",
         ftOrg2: "Operator: Joel",
@@ -2241,11 +2647,26 @@
         yearShort: "yrs",
         opNum1: "in the Philippines",
         opNum2: "with neighborhood kids",
+        opBadge: "Operated by Joel",
         opMeta: "From Joel · A note from the operator",
         opHeading: "\"It started with one packed lunch for one child next door.\"",
         opP1: "I've lived in the Philippines for 15 years. For the past 10, I've been quietly helping the children in my neighborhood — first with a packed lunch, then a bag of school supplies.",
         opP2: "Now I'd like to gather more hearts and reach more children, and that's why I started I Sarang. I won't make grand promises. I will, however, show you exactly where every peso goes — with receipts, every month.",
         opSign: "— Joel",
+
+        lvKicker: "Local Voices",
+        lvTitle: "Local voices<br />from people who have seen the work.",
+        lvDesc: "Recommendations from a neighborhood teacher, elder, church, or colleague will be shared here after confirmation and consent.",
+        lv1Role: "Neighborhood Teacher",
+        lv1Meta: "Local Teacher · Pending confirmation",
+        lv1Quote: "“A recommendation from a local teacher who has seen how Joel supports children will be published here after confirmation.”",
+        lv2Role: "Neighborhood Elder",
+        lv2Meta: "Neighborhood Elder · Photo/consent pending",
+        lv2Quote: "“We are preparing a note from someone who can speak to the long-running support and relationship in the neighborhood.”",
+        lv3Role: "Local Church · Colleague",
+        lv3Meta: "Community Partner · Pending confirmation",
+        lv3Quote: "“This space will share a word from a local church partner or colleague to show I Sarang’s community connection.”",
+        lvStatus: "Confirming recommendation",
 
         prKicker: "Our Promises",
         prTitle: "We're new,<br />so we lead with principles.",
@@ -2255,7 +2676,7 @@
         pr2Title: "We protect children",
         pr2Desc: "Faces and names are not shared without guardian consent.",
         pr3Title: "We keep proof",
-        pr3Desc: "Any expense above ~$70 USD is published with a receipt photo.",
+        pr3Desc: "All expenses are recorded monthly. Major expenses are shared with receipt photos.",
         pr4Title: "We don't overpromise",
         pr4Desc: "We accept only what we can manage and spend only what we receive.",
 
@@ -2293,7 +2714,7 @@
         trAfterStart: "After donations begin",
         trPreLaunch: "Pre-launch site preparation",
         trStatusSoon: "Upcoming", trStatusPrep: "Preparing",
-        pf1Title: "Receipts & Proof", pf1Desc: "Expenses above $70 are published with receipt photos.",
+        pf1Title: "Receipts & Proof", pf1Desc: "All expenses are recorded monthly. Major expenses are shared with receipt photos.",
         pf2Title: "Activity Photos", pf2Desc: "Shared in line with strict child privacy principles.",
         pf3Title: "Registration",     pf3Desc: "SEC, DSWD and other formal info will be updated step by step.",
 
@@ -2304,6 +2725,7 @@
         am2: "School supplies support.",
         am3: "Health & hygiene kit.",
         am4: "Emergency family support.",
+        currencyNote: "KRW amounts are approximate and may vary depending on the exchange rate.",
         tabKorea: "Korea Account", tabBank: "PH Bank",
         krTitle: "Korea Donation Account",
         bkTitle: "Philippines Bank Transfer",
@@ -2339,7 +2761,7 @@
 
         ftSub: "Children Support Project · Philippines",
         ftIntro: "I Sarang is a children support project started by Joel, who has lived in the Philippines for 15 years and supported neighborhood kids for the past 10.",
-        ftNotice: "Registration and local partnership information will be updated as the project becomes formalized.",
+        ftNotice: "Registration and local partnership information will be updated as the project becomes formalized. Activity photos are shared within consent and can be removed upon request.",
         ftOrg: "About",
         ftOrg1: "Project: I Sarang Children Support",
         ftOrg2: "Operator: Joel",
